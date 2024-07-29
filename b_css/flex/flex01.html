@@ -32,6 +32,20 @@
     .example2 {
       flex-direction: column;
     }
+
+    .example3 {
+      /* direction을 지정하지 않는 경우: 기본 row 설정 */
+      /* flex-wrap: nowrap; - 기본값(래핑되지 않음) */
+      flex-wrap: wrap-reverse;
+    }
+
+    .example4 {
+      /* 
+      flex-direction: row-reverse;
+      flex-wrap: wrap; 
+      */
+      flex-flow: row wrap-reverse;
+    }
   </style>
 </head>
 <body>
@@ -110,9 +124,6 @@
       flex-direction(정렬 방향)과 flex-wrap(래핑 방법)을 하나의 단축 속성으로 결합
       ? 지정 방법
       flex-flow: direction wrap;
-
-    ! flex item의 flex 크기 조정
-    
   -->
 
   <h1>Flexbox 강의자료</h1>
@@ -129,6 +140,28 @@
       <div class="item">1</div>
       <div class="item">2</div>
       <div class="item">3</div>
+    </div>
+    
+    <h2>3. Flex Wrap(아이템 래핑)</h2>
+    <div class="container example3">
+      <div class="item">1</div>
+      <div class="item">2</div>
+      <div class="item">3</div>
+      <div class="item">4</div>
+      <div class="item">5</div>
+      <div class="item">6</div>
+      <div class="item">7</div>
+    </div>
+    
+    <h2>4. Flex Flow(아이템 정렬 & 래핑 동시 지정 - 단축 속성)</h2>
+    <div class="container example4">
+      <div class="item">1</div>
+      <div class="item">2</div>
+      <div class="item">3</div>
+      <div class="item">4</div>
+      <div class="item">5</div>
+      <div class="item">6</div>
+      <div class="item">7</div>
     </div>
   </section>
 </body>
