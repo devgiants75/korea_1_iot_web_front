@@ -1,0 +1,16 @@
+p {
+  font-size: 40px;
+  transition: font-size 0.3s ease-in-out;
+}
+
+/* 
+브라우저 화면이 600px보다 작은 화면에서는 20px로 줄임 
+: 600px 이하(최대가 600px)
+*/
+
+@media (max-width: 600px) {
+  p {
+    font-size: 20px;
+  }
+}
+
