@@ -51,7 +51,7 @@ letVariable = 10;
 varVariable = 'Hello World';
 
 // 호이스팅 효과로 선언 전에 값 할당이 가능
-letVariable2 = 10;
+// letVariable2 = 10;
 varVariable2 = '안녕';
 
 let letVariable2 = 20;
@@ -75,6 +75,36 @@ var varVariable2; // 사용 X
 // 올해 연도, 태어난 연도, 나이에 대한 변수 선언
 // 올해 연도를 나타내는 변수에는 2024 값 할당
 
+let currentYear = 2024;
+let birthYear;
+let age;
+
 // 태어난 연도는 prompt 창에서 값을 할당 받아옴
+birthYear = prompt('태어난 연도를 입력해주세요.');
 
 // 나이 변수에 올해 연도 - 태어난 연도 변수를 사용하여 식 완성
+age = currentYear - birthYear;
+
+// 변수와 문자열을 동시 출력
+// : +(연산자)를 사용하여 연결 가능
+document.write(birthYear + '년에 태어난 사람의 나이는 ' + age + '세입니다.');
+
+//! 상수(constant)
+// : 변하지 않는 수
+// : 한 번 할당된 값을 변경할 수 X (재할당 불가)
+
+//? 상수 명명 규칙 (필수 - 변수와 동일)
+//* 권장 사항
+// : UPPER_SNAKE_CASE
+// : 모든 영문자를 대문자, 이어지는 단어는 언더스코어(_)로 구분
+
+// 상수 선언과 초기화 - 반드시! 선언과 동시에! 할당!
+// const 변수명 = 데이터(값);
+
+const PI = 3.14;
+
+// PI = 2.14; - Error: 상수에 재할당 불가!
+
+let radius = prompt('반지름을 입력해주세요.');
+
+console.log('반지름: ', radius * radius * PI);
