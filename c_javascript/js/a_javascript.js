@@ -17,10 +17,10 @@
 //# 간단한 JS 예제
 
 // 웹 문서에서 button이라는 선택자를 요청하여 button에 담기
-const button = document.querySelector('button');
+// const button = document.querySelector('button');
 
 // button 요소에 클릭(click)이벤트가 발생할 경우 updateName기능이 실행
-button.addEventListener('click', updateName);
+// button.addEventListener('click', updateName);
 
 // updateName에 대한 기능 정의
 function updateName() {
@@ -44,3 +44,6 @@ console.log('안녕하세요');
 // >> 콘솔 입력 스니펫 (clg)
 
 console.log('안녕하세요');
+
+// node 환경에서 파일 실행
+// : node 파일명.js
