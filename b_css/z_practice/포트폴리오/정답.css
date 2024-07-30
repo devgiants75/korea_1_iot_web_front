@@ -29,8 +29,10 @@ header, nav, section, footer {
 }
 
 header {
+  background-image: linear-gradient(to right, var(--main-color), var(--accent-color));
   /*  
   - 배경색: 선형 그라데이션(오른쪽 방향, 메인 > 강조)
+  
   - 글자색: 흰색
   - 텍스트 그림자: 오른쪽 하단 1px씩, 번짐효과 2px, 검은색
   */
