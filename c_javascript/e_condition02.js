@@ -112,3 +112,27 @@ switch (true) {
 };
 
 console.log(grade);
+
+// (+) 조건식 예제
+
+//! 출력값 확인
+true ? console.log('출력A') : console.log('출력B'); // '출력A'
+false ? console.log('출력B') : console.log('출력A'); // '출력A'
+true || console.log('출력A'); // 출력 X
+true && console.log('출력A'); // '출력A'
+
+//* 조건문 Best Practice //
+
+// 1. 비교 연산자 사용 시 '==' 대신 '===' 사용을 권장
+
+console.log(0 == false); // true
+console.log(0 === false); // false
+
+// 2. 논리 자료형 변수에 대한 조건 활용 시 일치/불일치 여부를 생략
+let isTrue = true;
+
+// if (isTrue === true) console.log('isTrue는 참이다.');
+if (isTrue) console.log('isTrue는 참이다.');
+
+// if (isTrue !== true) console.log('isTrue는 참이다.');
+if (!isTrue) console.log('isTrue는 참이다.');

@@ -81,3 +81,23 @@ total *= 3; // 15
 total -= 2; // 13
 
 console.log('최종결과: ', total);
+
+//% === 조건문 예제 === //
+//! 윤년 계산기
+
+let randomYear = 2024;
+// 윤년의 조건
+// - 연도가 4로 나누어 떨어지는 해는 윤년입니다.
+// - 그 중에서 100으로 나누어 떨어지는 해는 윤년이 아닙니다.
+// - 하지만 400으로 나누어 떨어지는 해는 다시 윤년이 됩니다.
+
+// 윤년일 경우 : randomYear년은 윤년입니다.
+// 윤년이 아닐 경우 : randomYear년은 윤년이 아닙니다.
+
+let isLeapYear = (randomYear % 4 === 0 && randomYear % 100 !== 0) || (year % 400 === 0);
+
+if (isLeapYear) {
+  console.log(`${randomYear}년은 윤년입니다.`);
+} else {
+  console.log(`${randomYear}년은 윤년이 아닙니다.`);
+}
