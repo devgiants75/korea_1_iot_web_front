@@ -53,14 +53,47 @@ let grade; // 학점
 // 그외의 경우 F >> 각 학점의 값을 grade라는 변수에 대입
 
 //? 1) if문 (else if, else문)
+score = 81;
+
+console.log('=== if문 ===');
+
+if (score < 0 || score > 100) {
+  console.log('유효한 점수가 아닙니다.');
+} else if (score >= 90) {
+  console.log('A');
+} else if (score >= 80) {
+  console.log('B');
+} else if (score >= 70) {
+  console.log('C');
+} else if (score >= 60) {
+  console.log('D');
+} else {
+  console.log('F');
+};
 
 //? 2) 삼항 연산자
+console.log('=== 삼항 연산자 ===');
+score = 91;
+
+grade = 
+  score > 100 || score < 0 
+  ? '유효한 점수가 아닙니다.' : score >= 90 
+  ? 'A' : score >= 80 
+  ? 'B' : score >= 70
+  ? 'C' : score >= 60
+  ? 'D' : 'F';
+
+console.log(grade);
 
 //? 3) switch문 - 조건식에 true값(조건의 결과가 true인 경우) 각각의 case에 조건 사용(대입)
+
+console.log('=== switch case 문 ===');
+score = 35;
 
 switch (true) {
   case (score < 0 || score > 100):
     grade = '유효한 점수가 아닙니다.';
+    console.log(grade);
     break;
   case (score >= 90):
     grade = 'A';
@@ -75,5 +108,7 @@ switch (true) {
     grade = 'D';
     break;
   default:
-    grage = 'F';
-}
+    grade = 'F';
+};
+
+console.log(grade);
