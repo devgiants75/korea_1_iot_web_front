@@ -60,6 +60,10 @@ console.log(`${inch}inch의 값은 ${cm}cm입니다.`);
 //   짝수일 경우 "짝수" 출력
 //   홀수일 경우 "홀수" 출력
 // -결과-------------------------------------------------------//
+let number;
+number = Number(prompt('숫자를 입력하세요.'));
+let message = number % 2 === 0 ? '짝수' : '홀수';
+console.log(message);
 
 //! 문제 4
 
@@ -71,3 +75,9 @@ console.log(`${inch}inch의 값은 ${cm}cm입니다.`);
 // 3) 결과값에서 2를 빼세요.
 
 // -결과--------------------------------------------------------//
+let total = 0;
+total += 5; // 5
+total *= 3; // 15
+total -= 2; // 13
+
+console.log('최종결과: ', total);
