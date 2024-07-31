@@ -42,3 +42,44 @@ console.log(!bool2); // true
 
 //? 기본 구조
 // 표현식 ? 반환값1 : 반환값2
+
+// - 표현식: true 또는 false 값을 반환하는 식
+// - 반환값1: 위의 표현식 조건이 참(true)일 때 반환될 값
+// - 반환값2: 위의 표현식 조건이 거짓(false)일 때 반환될 값
+
+let age = 21;
+let beverage = age > 20 ? 'Beer' : 'Juice';
+console.log(beverage); // Beer
+
+let isMember = false; // 회원의 유무를 저장하는 변수
+let discount = isMember ? '10%' : '5%';
+console.log(discount); // 5%
+
+// 삼항연산자의 중첩
+// : 조건의 계산 내에서 또 다른 조건의 계산이 이루어짐
+
+// EX) 20살 이상 (성인) / 20살 미만 (미성년자) - 13살 이하 (어린이) / 13살 초과 (청소년)
+
+age = 22;
+let identity = age >= 20 ? '성인' : (age <= 13 ? '어린이' : '청소년');
+console.log(identity); 
+
+//# 문자열 연산자
+// 타입이 모두 숫자: 산술 연산의 덧셈
+// 타입이 하나라도 문자열 일 경우: 문자열의 결합
+
+let firstName = 'SeungAh'
+let lastName = 'Lee'
+
+console.log(firstName + ' ' + lastName); // SeungAh Lee
+
+//# typeof 연산자
+// : 데이터에 대한 타입 반환이 문자열로 반환
+// 'number', 'string', 'boolean', 'undefined', 'object', 'function', 'symbol', 'bigint'
+
+// +) null 타입의 결함: 초기 JS 설계의 결함으로 object 타입을 반환
+let objectData = {};
+let functionData = function() {}
+
+console.log(typeof objectData); // object
+console.log(typeof functionData); // function
