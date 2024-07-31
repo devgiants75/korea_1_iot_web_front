@@ -54,6 +54,26 @@ let grade; // 학점
 
 //? 1) if문 (else if, else문)
 
-//? 2) switch문
+//? 2) 삼항 연산자
 
-//? 3) 삼항 연산자
+//? 3) switch문 - 조건식에 true값(조건의 결과가 true인 경우) 각각의 case에 조건 사용(대입)
+
+switch (true) {
+  case (score < 0 || score > 100):
+    grade = '유효한 점수가 아닙니다.';
+    break;
+  case (score >= 90):
+    grade = 'A';
+    break;
+  case (score >= 80):
+    grade = 'B';
+    break;
+  case (score >= 70):
+    grade = 'C';
+    break;
+  case (score >= 60):
+    grade = 'D';
+    break;
+  default:
+    grage = 'F';
+}
