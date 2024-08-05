@@ -61,17 +61,34 @@ console.log(containsElement([1, 2, 3, 4, 5], 6)); // false
 //! 4. 배열 평균 구하기
 
 function findAverage(array) {
+  let sum = 0;
+  let length = array.length;
 
+  for (let i = 0; i < length; i++) {
+    sum += array[i];
+  }
+
+  return sum / length;
 }
 
-console.log(findAverage([10, 20, 30, 40, 50]));
+console.log(findAverage([10, 20, 30, 40, 50])); // 30
 
 //! 5. 최댓값 찾기
 // - 배열의 첫번째 요소를 max라는 변수에 담기
 // - 배열을 순회하면서 max보다 큰 값이 있을 경우 max를 해당 값으로 재할당
 
-function findMax() {
+function findMax(array) {
+  let max = array[0];
+  let length = array.length;
 
+  for (let i = 1; i < length; i++) {
+    if (array[i] > max) {
+      max = array[i];
+    }
+  }
+
+  return max;
 }
 
-console.log(findMax([10, 3, 45, 78, 6]));
+console.log(findMax([10, 3, 45, 78, 6])); // 78
+console.log(findMax([10, 3, 45, 38, 6])); // 45
