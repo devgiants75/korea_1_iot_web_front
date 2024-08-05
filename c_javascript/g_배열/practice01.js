@@ -14,7 +14,6 @@ console.log(fruits[1]);
 fruits[2] = 'Mango';
 console.log(fruits); // [ 'Apple', 'Banana', 'Mango' ]
 
-
 //! 배열 정렬 및 검색 - fruits 배열 사용
 // reverse 메소드 사용하기: 문자열 배열을 알파벳 역순으로 정렬하는 코드를 작성
 fruits.reverse();
