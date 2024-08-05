@@ -70,7 +70,14 @@ console.log(subtract(5, 3)); // 2
 // 1) 함수 선언문
 function square1(x) {
   let double = x * x;
+
+  // ...
+  // 변수 = 최종 반환값;
+  // return 변수;
+
   return double;
+
+  console.log('함수의 return 뒤에 나오는 로직');
 }
 
 console.log(square1(3)); // 9
