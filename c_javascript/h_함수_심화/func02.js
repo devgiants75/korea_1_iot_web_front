@@ -90,9 +90,32 @@ console.log(`짝수만 추출한 배열: ${evenNumbers}`); // 짝수만 추출�
 let cars = ['audi', 'bmw', 'volvo', 'hyundai'];
 
 // 1. 전체 배열의 요소를 순회하여 출력 - forEach (콘솔 출력)
+cars.forEach((car) => {
+  console.log(car);
+});
 
 // 2. 전체 배열의 요소를 대문자(영문자)로 변환 - map
 // >> 문자열데이터.toUpperCase()
+let carsUpperCase = cars.map(car => car.toUpperCase());
+console.log(carsUpperCase); // [ 'AUDI', 'BMW', 'VOLVO', 'HYUNDAI' ]
 
 // 3. 전체 배열의 요소 중 문자열의 길이가 4보다 큰 요소만 반환 - filter
 // >> 문자열데이터.length
+let longNameCars = cars.filter(car => car.length > 4);
+console.log(longNameCars); // [ 'volvo', 'hyundai' ]
+
+//& 메서드 체이닝
+// : 메서드를 연속적으로 호출하는 프로그래밍 패턴
+// >> 어떤 메서드(기능)이 반환(리턴)하는 값을 기반으로 또 다른 메서드(기능)을 줄줄이 사용하는 것
+
+let numbersArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+// numbersArray의 값들 중
+// - 짝수만 선택 (filter)
+// - 해당 값들을 제곱 (map)
+// - 콘솔에 출력 (forEach)
+
+numbersArray
+  .filter(value => value % 2 === 0)
+  .map(value => value * value)
+  .forEach(value => console.log(value));
