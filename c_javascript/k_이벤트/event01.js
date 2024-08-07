@@ -131,7 +131,7 @@ divs.forEach(div => div.onclick = function() {
 // HTML 요소에 addEventListener 메서드를 사용하여 이벤트를 등록하는 방법
 // >> 한 요소에 여러 개의 이벤트 핸들러 등록 가능
 
-// addEventLister 메서드는 HTML 요소(객체)에 사용
+// "addEventLister 메서드는 HTML 요소(객체)에 사용"
 
 const btnsButton = document.querySelectorAll('.btnsChange');
 
@@ -141,8 +141,33 @@ const btnsButton = document.querySelectorAll('.btnsChange');
 // 콜백함수: 요소에 연결할 함수 (이벤트 발생 시 실행될 함수)
 
 btnsButton.forEach(btn => {
+  // btn은 DOM 요소 (HTML 요소를 객체로 변환)
   btn.addEventListener('click', function() {
     const randomColor = randomColorFunc();
     btn.style.backgroundColor = randomColor;
   });
 });
+
+//? === 4) 이벤트 제거하는 방법 ===
+// : removeEventListener() 메서드 사용
+// >> 이벤트 핸들러를 제거하는 메서드
+
+const removeButton = document.querySelector('#remove');
+
+let removeChange = () => {
+  const randomColor = randomColorFunc();
+  removeButton.style.color = randomColor;
+};
+
+// cf) 함수 호출 VS 함수 등록
+// 함수 호출: 함수명()
+// >> 코드를 읽는 즉시 함수가 실행
+
+// 함수 등록: 함수명
+// >> 부가적인 발생, 함수를 전달하여 실행
+
+// 이벤트 리스너 등록
+removeButton.addEventListener('click', removeChange);
+
+// 이벤트 리스너 제거
+removeButton.removeEventListener('click', removeChange);
