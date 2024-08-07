@@ -14,7 +14,7 @@ function bgChange(event) {
   event.target.style.backgroundColor = randomColor;
 }
 
-//! 이벤트 '객체'
+//! 1. 이벤트 '객체'
 // : 이벤트 핸들러가 호출될 때
 //   , 브라우저가 자동으로 이벤트 객체를 생성하여 이벤트 핸들러에 전달
 // >> 이벤트와 관련된 다양한 속성과 메서드가 포함
@@ -73,3 +73,45 @@ for (let i = 0; i < tiles.length; i++) {
     e.target.style.backgroundColor = tileChange();
   }
 }
+
+//! 2. 이벤트의 기본 행동 방지
+// form 태그의 경우 submit 버튼 실행 시
+// , 내부의 데이터가 서버에 전송되고 페이지가 리로드
+// >> 기본 행동을 방지 메서드: preventDefault()
+
+const form = document.querySelector('form');
+const fname = document.querySelector('#fname');
+const email = document.querySelector('#email');
+const p = document.querySelector('p');
+
+// onsumbit 이벤트 등록
+// : form 요소의 전송에 대한 이벤트를 감지
+
+form.onsubmit = function(e) {
+  // 이름과 이메일을 반드시 작성하도록 설정
+  // 참조된 요소의 값(내용) 가져오기
+  // : 참조값.value 속성을 사용
+
+  if (fname.value === '' || email.value === '') {
+    e.preventDefault();
+    
+    p.textContent = '이름과 이메일을 모두 입력해주세요 :)'; 
+  }
+}
+
+//! 3. 이벤트 전파 방지
+let parentDiv = document.querySelector('#parentDiv');
+let childButton = document.querySelector('#childButton');
+
+parentDiv.addEventListener('click', function() {
+  console.log('부모 요소 클릭');
+});
+
+childButton.addEventListener('click', function(e) {
+  console.log('자식 요소 클릭');
+
+  // 이벤트 버블링은 자식에서 부모로 진행
+  // : 이벤트객체.stopPropagation() 메서드를 사용하여 전파를 중지
+
+  e.stopPropagation(); // 자식 요소에서 지정
+});
