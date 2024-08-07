@@ -82,5 +82,24 @@ function deleteTodo(id) {
 
 //? 현재의 할 일 목록을 출력하는 함수
 function displayTodos() {
+  console.log(`현재의 할 일 목록`);
+  todos.forEach(todo => {
+    // todo.completed는 boolean 값
+    // >> 조건식 중에 연산자를 활용하는 '삼항 연산자' (조건식 ? 참 : 거짓)
+    console.log(`${todo.id}: ${todo.content} - ${todo.completed ? '완료됨' : '완료되지 않음'}`);
+  });
+};
 
-}
+//# 프로젝트 실행
+addTodo('sqld 공부하기!!!!!');
+addTodo('기술 블로그 작성하기!!!');
+addTodo('자기소개서 작성하기!');
+
+toggleTodo(1);
+toggleTodo(3);
+
+deleteTodo(3);
+
+addTodo('자바스크립트 복습하기');
+
+toggleTodo(1);
