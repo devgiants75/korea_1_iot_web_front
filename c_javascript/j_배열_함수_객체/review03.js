@@ -116,7 +116,7 @@ class Library {
 }
 
 //# 프로젝트 실행
-const busanLibrary = new Library();
+const busanLibrary = new Library(); // 부산 도서관 객체 생성
 
 busanLibrary.addBook('SQLD 공부', '이승아');
 busanLibrary.addBook('JS 공부', '이도경');
@@ -125,4 +125,20 @@ busanLibrary.addBook('Java 공부', '이지희');
 
 busanLibrary.displayBooks();
 
-busanLibrary.rentBook(1);
+busanLibrary.rentBook(1); // 대여 O
+busanLibrary.displayBooks();
+busanLibrary.rentBook(1); // 대여 불가 메시지
+
+busanLibrary.returnBook(1);
+busanLibrary.displayBooks();
+
+const seoulLibrary = new Library(); // 서울 도서관 객체 생성
+seoulLibrary.addBook('바나나먹기', '이승아');
+seoulLibrary.addBook('짜장면 맛있게 끓이기', '이도경');
+
+seoulLibrary.displayBooks();
+
+// cf) 인스턴스(instance) === '객체'
+// : 클래스를 통해 생성된 객체
+// >> 메모리 주소에 할당된 객체
+// >> 각 인스턴스는 독립된 객체
