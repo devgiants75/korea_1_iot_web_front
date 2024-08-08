@@ -40,5 +40,31 @@ let data = [
   }
 ];
 
-//& 1) JSON.stringfy()
+//& 1) JSON.stringfy(자바스크립트 객체)
 // : 자바스크립트 객체를 JSON 문자열로 변환
+// 데이터에 바로 적용 X >> JSON 내장 객체에 사용
+
+console.log('JSON으로 변환');
+console.log(JSON.stringify(data));
+
+// cf) .stringfy()메서드의 인자
+// (JSON으로 변환할 데이터, 속성추출, 들여쓰기 N칸)
+
+// - 속성추출
+// : 원하는 객체의 속성만 가져오는 경우
+// >> 비워둘 경우 null 지정
+
+// - 들여쓰기 N칸
+// : JSON 형태의 가독성을 향상 (2칸을 주로 사용)
+
+console.log('들여쓰기 설정 JSON 데이터');
+console.log(JSON.stringify(data, null, 2));
+
+//& 2. JSON.parse()
+// : JSON문자열을 자바스크립트 객체로 전환
+
+let jsonData = JSON.stringify(data);
+console.log(jsonData);
+
+console.log('=== 자바스크립트 객체 출력 ===');
+console.log(JSON.parse(jsonData));
