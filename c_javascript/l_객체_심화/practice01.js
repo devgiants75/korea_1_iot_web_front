@@ -10,3 +10,10 @@ let student = {
   major: "컴퓨터공학",
   lectures: ["자료구조", "알고리즘", "운영체제"]
 };
+
+
+let student_json = JSON.stringify(student);
+console.log(student_json);
+
+let student_obj = JSON.parse(student_json);
+console.log(student_obj);
