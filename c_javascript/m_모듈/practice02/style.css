@@ -71,3 +71,17 @@ li {
   border-radius: 4px;
   cursor: pointer;
 }
+
+li:hover {
+  background-color: #efefef;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* 
+선택자.클래스명
+: 해당 선택자 중에서 클래스명이 있는 요소에만 스타일 지정 
+*/
+li.completed {
+  text-decoration: line-through;
+  color: #888;
+}
