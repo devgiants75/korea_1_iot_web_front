@@ -54,6 +54,20 @@ function updateTodoList() {
       updateTodoList();
     });
 
+    // 삭제 버튼 생성
+    const deleteButton = document.createElement('button');
+    deleteButton.textContent = 'Delete';
+    deleteButton.classList.add('delete-button');
+
+    // 삭제 버튼 클릭 시 해당 할 일 항목 제거
+    deleteButton.addEventListener('click', (e) => {
+      todoManager.removeTodo(todo.id);
+      updateTodoList();
+    });
+
+    // ul >> li >> button
+    li.appendChild(deleteButton);
+
     todoList.appendChild(li);
   });
 }

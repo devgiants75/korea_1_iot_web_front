@@ -70,6 +70,10 @@ li {
   padding: 10px;
   border-radius: 4px;
   cursor: pointer;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 li:hover {
@@ -84,4 +88,16 @@ li:hover {
 li.completed {
   text-decoration: line-through;
   color: #888;
+}
+
+.delete-button {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.delete-button:hover {
+  background-color: darkred;
 }
