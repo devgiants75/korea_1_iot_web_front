@@ -24,7 +24,7 @@
 
 //# import문 사용 예시
 
-// 1) 이름 붙여 가져오기 - 중괄호 사용 O
+//& 1) 이름 붙여 가져오기 - 중괄호 사용 O
 // : 여러 개의 export가 가능 
 // >> 중괄호 내에서 ,(콤마)로 구분하여 나열
 
@@ -52,3 +52,9 @@ import * as module02 from './module02.js';
 
 console.log(module02.PI); // 3.1412341234
 console.log(module02.multiply(9, 2)); // 18
+
+//& 2) 기본 가져오기
+//* import 모듈명(변경 X) from './파일의경로.확장자';
+
+import add from './module02.js';
+console.log(add(4, 5)); // 9

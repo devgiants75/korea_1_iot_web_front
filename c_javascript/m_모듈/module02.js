@@ -32,9 +32,11 @@ export default function add(x, y) {
   return x + y;
 }
 
-// export default function sum(x, y) {
+// export default function sum(x, y) { 
 //   return x + y;
-// } - 하나의 모듈에는 하나의 기본 내보내기만 가능!
+// } 
+// - 하나의 모듈에는 하나의 기본 내보내기만 가능!
+// Duplicate export of 'default'
 
 //# import 문
 // : 다른 모듈에서 내보낸 기능을 사용하기 위해 import문을 사용
