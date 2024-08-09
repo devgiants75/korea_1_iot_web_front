@@ -41,11 +41,28 @@ function fetchUserData(userId, callback) {
 }
 
 // 사용자 데이터 처리 함수(콜백 함수)
-function handleUserData(user) {
+function handleUserData(user , callback) {
   console.log(`User Data: ${user.name}`);
+
+  // 콜백함수 내에서 함수 실행 후 동작시킬 코드
+  // : 중첩된 콜백함수
+  callback();
 }
 
 // fetchUserData 함수 호출
 fetchUserData(1, handleUserData); // 비동기 처리 로직
 
 console.log('비동기적인 출력'); // 메인 로직
+
+//# 콜백 함수의 중첩: 콜백 지옥(callback hell)
+// >> Promise 기반의 비동기 처리 프로그래밍을 통한 방지
+
+function a() {
+  console.log('a');
+  function b() {
+    console.log('b');
+    function c() {
+      console.log('c');
+    }
+  }
+}
