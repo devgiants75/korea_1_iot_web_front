@@ -7,7 +7,7 @@ import { TodoManager } from "./TodoManager.js";
 // - 이벤트 등록, 할 일 목록 업데이트 등 로직을 담당
 
 //? TodoManager의 인스턴스를 생성
-const todoManager = new TodoManager();
+const todoManager = new TodoManager(); 
 
 //? HTML 요소 가져오기
 const form = document.querySelector('#new-todo-form');
