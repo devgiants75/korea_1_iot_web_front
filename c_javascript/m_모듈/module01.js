@@ -28,9 +28,27 @@
 // : 여러 개의 export가 가능 
 // >> 중괄호 내에서 ,(콤마)로 구분하여 나열
 
-import { PI, multiply } from './module02.js';
+import { PI as PIE, multiply as mp } from './module02.js';
 // import { multiply } from './module02.js';
 
-console.log(PI); // 3.1412341234
-console.log(multiply(2, 3)); // 6
+console.log(PIE); // 3.1412341234
+console.log(mp(2, 3)); // 6
 
+// 2) 이름 붙여 가져오기의 as구문
+// >> as키워드 (alias: 별칭, 별명)
+// >> 가져오는 모듈 내에서 별칭을 사용하여 해당 기능에 대한 참조
+
+function multiply(x, y) {
+  return x * y;
+}
+
+console.log(multiply(5, 8)); // 40
+
+// 3) 전체 모듈을 별칭으로 가져오기
+// >> 하나의 모듈(파일)을 하나의 별칭으로 가져와
+//    , 모듈 내의 모든 기능을 해당 별칭을 통해 접근
+// >> 하나의 모듈을 객체로 파악
+import * as module02 from './module02.js';
+
+console.log(module02.PI); // 3.1412341234
+console.log(module02.multiply(9, 2)); // 18
