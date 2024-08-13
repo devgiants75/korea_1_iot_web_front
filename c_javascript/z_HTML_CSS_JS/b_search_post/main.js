@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   //& 사용자의 포스트를 비동기적으로 가져오는 함수를 정의
   async function fetchPosts(userId) {
-    const response = await fetch(`https://jsonplaceholder.typicode.com/posts/${userId}`);
+    const response = await fetch(`https://jsonplaceholder.typicode.com/posts?userId=${userId}`);
 
     if (!response.ok) {
       throw new Error('네트워크 응답에 문제가 있습니다.');
