@@ -1,6 +1,7 @@
 // https://openweathermap.org/api
 
 const city = "Seoul";
+// >> input창에서 입력받을 경우 capitalize 사용
 const apikey = "b3d2a174bd0bf979992c01994dd21eea";
 const lang = "kr";
 
@@ -83,7 +84,7 @@ sunset: 일몰 시간 (Unix 타임스탬프, 1723544872)
 
 일출과 일몰 시간은 Unix 타임스탬프로 출력 - 한국 표준시(GMT+9) 기준
 
-* ===== *
+* ===== main: 날씨의 주 상태 ('Clear', 맑음) ===== *
 Clear: 맑음
 Clouds: 구름 많음
 Rain: 비
