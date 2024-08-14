@@ -28,7 +28,7 @@ function getCookieValue(cookieName) {
   return ''; // 일치하는 쿠키 이름이 없으면 빈 문자열 반환
 }
 
-let username = getCookieValue('username');
+let username = getCookieValue('username'); 
 console.log(username);
 
 let userAge = getCookieValue('userAge');
@@ -53,3 +53,6 @@ deleteCookie('userAge');
 deleteCookie('username');
 deleteCookie('cookie02');
 deleteCookie('oneDate');
+
+// 원하는 쿠키 이름, 쿠키 값 >> 전체 프로젝트 경로에서 접근 가능한 쿠키 설정
+// +) 만료 날짜 1시간 뒤
