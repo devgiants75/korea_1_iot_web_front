@@ -25,3 +25,12 @@ a {
   background: url('') no-repeat;
   background-size: cover;
 }
+
+/* 크롬 */
+input::placeholder {}
+
+/* 사파리 */
+input::-webkit-input-placeholder {} 
+
+/* 엣지 */
+input::-ms-input-placeholder {}
