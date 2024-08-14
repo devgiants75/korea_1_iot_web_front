@@ -62,3 +62,9 @@ function renderTodos(todos) {
 }
 
 //# 할 일을 삭제하는 함수
+function removeTodo(index) {
+  // 배열.splice(삭제할 요소의 시작 인덱스, 제거할 요소의 수);
+  todos.splice(index, 1);
+  localStorage.setItem('todos', JSON.stringify(todos));
+  renderTodos(todos);
+}
