@@ -69,6 +69,21 @@ console.log(isValidUser(userB)); // false
 // +) 함수 타입 지정 시 반환 값이 없는 경우의 타입: void
 // type VoidFunc = () => void;
 
+// 함수의 타입 별칭 예제
+// - 함수 표현식
+// - 화살표 함수*
+type FuncType = (num: number) => number;
+
+// 함수의 타입 별칭을 사용하는 함수는 반드시 화살표 함수의 체계를 가져야 함
+const exampleFunc: FuncType = (num) => {
+  num *= 2; // num = num * 2;
+  return num;
+}
+
+const exampleFunc2 = (num: number): number[] => {
+  num *= 2; // num = num * 2;
+  return [num, num];
+}
 
 // === 타입 별칭 사용 ===
 
