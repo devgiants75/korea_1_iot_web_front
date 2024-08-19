@@ -27,7 +27,7 @@ const user: {
 
 //! 객체의 선택 속성
 // : 선택적 프로퍼티
-// >> 속성명 뒤에 물음표(?)를 붙여 해당 속성이 존재하지 않을 수도 있음을 표현
+// >> 속성명 "뒤"에 물음표(?)를 붙여 해당 속성이 존재하지 않을 수도 있음을 표현
 
 const ldk: {
   name: string;
@@ -38,3 +38,34 @@ const ldk: {
 }
 
 //! 읽기 전용 속성
+// : 속성명 "앞"에 readonly 키워드를 사용하여 해당 속성의 재할당을 금지
+// >> 해당 키워드가 붙은 속성은 const 키워드를 사용하여 정의한 변수와 유사 (상수)
+
+const readonlyName: {
+  readonly name: string;
+  readonly age: number;
+  address?: string;
+} = {
+  name: '이승아',
+  age: 50
+}
+
+// 객체의 속성값 수정
+// 객체.속성 = 재할당값;
+
+// readonlyName.name = '이도경'; // - Error: 읽기전용 속성은 재할당 불가
+// readonlyName.age = 30; // Error
+readonlyName.address = '부산시 연제구';
+
+console.log(readonlyName); // { name: '이승아', age: 50, address: '부산시 연제구' }
+
+// (파일이 담긴 폴더의 터미널에서) ts-node 파일명.ts
+
+// === 객체 타입 어노테이션 ===
+//! 문제1
+// 다음 객체 타입을 정의하고, 해당 타입을 가진 객체를 하나 생성
+// person: 객체는 name(문자열), age(숫자), hobby(문자열, 선택적) 속성을 가져야 한다.
+
+//! 문제2
+// readonly를 사용하여 car 객체 타입을 정의하고, model(읽기 전용, 문자열)과 year(숫자) 속성을 포함하는 객체를 생성
+// + model 속성에 다른 값을 할당하려고 할 때 발생하는 오류를 설명
