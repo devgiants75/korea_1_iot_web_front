@@ -16,7 +16,7 @@ myVariable = false;
 //! 2. 함수 매개변수에 Union 타입 적용
 // number와 string 타입 중 하나를 매개변수로 받아, 해당 값이 number일 경우 숫자를 2배로 증가시키고, string일 경우 그대로 반환하는 함수 doubleOrNothing을 작성
 
-function doubleOrNothing(input: number | string) {
+function doubleOrNothing(input: number | string): void {
   if (typeof input === 'number') {
     console.log(input * 2);
   } else {
