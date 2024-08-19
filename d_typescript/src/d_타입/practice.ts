@@ -19,3 +19,12 @@ export const tmp = '';
 
 // - 사용자 정보가 있는 경우: { name: string, email: string }
 // - 사용자 정보가 없는 경우: { error: string }
+
+//& ============ 인터섹션 =============//
+//! 문제 1: 기본 Intersection 타입 생성
+// - Person 타입과 ContactDetails 타입을 결합하여 Employee 타입을 생성
+// - Employee 타입은 Person의 모든 속성(name, age)과 ContactDetails의 모든 속성(email, phone)을 포함
+
+//! 문제 2: 함수 반환 타입으로 Intersection 사용
+// - Vehicle 타입과 Engine 타입을 결합하여 Car 타입 생성
+// - createCar 함수를 구현하여, 주어진 Vehicle과 Engine 정보를 받아 Car 객체를 반환하도록 구현
