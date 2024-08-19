@@ -71,6 +71,56 @@ identifyPerson(userPerson); // 유저 계정입니다.
 // - Person 타입과 ContactDetails 타입을 결합하여 Employee 타입을 생성
 // - Employee 타입은 Person의 모든 속성(name, age)과 ContactDetails의 모든 속성(email, phone)을 포함
 
+type PersonType = {
+  name: string;
+  age: number
+}
+
+type ContactDetails = {
+  email: string;
+  phone: string;
+}
+
+type Employee = PersonType & ContactDetails;
+
+let employee1: Employee = {
+  name: '이승아',
+  age: 50,
+  email: 'qwe123',
+  phone: '010-1234-1234'
+}
+
 //! 문제 2: 함수 반환 타입으로 Intersection 사용
 // - Vehicle 타입과 Engine 타입을 결합하여 Car 타입 생성
 // - createCar 함수를 구현하여, 주어진 Vehicle과 Engine 정보를 받아 Car 객체를 반환하도록 구현
+
+type Vehicle = {
+  make: string;
+  model: string;
+}
+
+type Engine = {
+  engineType: string;
+  horsepower: number;
+}
+
+type Car = Vehicle & Engine;
+
+function createCar(vehicle: Vehicle, engine: Engine): Car {
+  // 구조 분해 할당 + 스프레드 연산자를 사용하는 객체 생성 방법
+  return {...vehicle, ...engine};
+}
+
+let v1: Vehicle = {
+  make: 'kia',
+  model: 'k8'
+}
+
+let engine: Engine = {
+  engineType: '하이브리드',
+  horsepower: 100
+}
+
+let newCar = createCar(v1, engine);
+console.log(newCar);
+// { make: 'kia', model: 'k8', engineType: '하이브리드', horsepower: 100 }
