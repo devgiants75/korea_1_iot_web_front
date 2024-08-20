@@ -156,6 +156,7 @@ type UserDataType = {
   // [propertyName: indexType]: valueType;
   // 키의 타입과 값의 타입을 미리 명시
   [key: string]: string | number | boolean; // 키는 string 사용을 권장
+  // >> valueType에는 어떤 타입이든 가능
 }
 
 let user1: UserDataType = {
@@ -164,3 +165,6 @@ let user1: UserDataType = {
   age: 50,
   isTeacher: true
 }
+
+// user1.email = [123, 234];
+user1.email = 'qwe123';
