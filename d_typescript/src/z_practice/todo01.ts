@@ -49,7 +49,7 @@ function addTodo(todos: ITodoItem[], task: string): ITodoItem[] {
     //? Math.max() 사용
     // >> 매개변수로 주어진 숫자 중에서 가장 큰 수를 반환
     // +) 배열이 포함된 경우 배열 요소 중 가장 큰 값을 반환
-    // Math.max(배열을 순회하여 가장 큰 id값을 가져옴)
+    // Math.max(가장 큰 id값을 가져옴)
 
     //? ...todos.map(todo => todo.id)
     // >> 현재의 할 일 목록을 순회
@@ -64,6 +64,10 @@ function addTodo(todos: ITodoItem[], task: string): ITodoItem[] {
     >> // [1, 2, 3]배열을 반환
     */
   
+    //? Math.max(0, ...todos.map(todo => todo.id))
+
+    // 0, ...todos.map(todo => todo.id)
+    // >> 0, 1, 2, 3
     id: Math.max(0, ...todos.map(todo => todo.id)) + 1, 
     task: task,
     completed: false
