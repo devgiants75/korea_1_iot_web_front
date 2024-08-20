@@ -67,9 +67,32 @@ function completedTodo(todos: ITodoItem[], id: number): ITodoItem[] {
   return changeTodo;
 }
 
-function deleteTodo() {
+function deleteTodo(todos: ITodoItem[], id: number): ITodoItem[] {
   // 현재 할 일 목록을 순회
   // : 매개변수로 전달받은 id값과 일치하지 않는 값만 새로운 배열로 반환
+  // >> filter 배열 메서드
+  const changeTodo = todos.filter(todo => todo.id !== id);
 
   // 변경된 할 일 목록 반환
+  return changeTodo;
 }
+
+//# 함수 사용 예시
+let todos: ITodoItem[] = [];
+
+todos = addTodo(todos, '타입스크립트 복습');
+todos = addTodo(todos, '자바스크립트 복습');
+todos = addTodo(todos, 'SQLD 공부');
+console.log(todos);
+
+todos = completedTodo(todos, 1);
+todos = completedTodo(todos, 3);
+console.log(todos);
+
+todos = completedTodo(todos, 1);
+console.log(todos);
+
+todos = deleteTodo(todos, 1);
+todos = deleteTodo(todos, 3);
+todos = addTodo(todos, 'HTML/CSS 복습'); // id 값 : 3
+console.log(todos);
