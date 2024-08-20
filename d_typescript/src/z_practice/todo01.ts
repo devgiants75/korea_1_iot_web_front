@@ -96,3 +96,14 @@ todos = deleteTodo(todos, 1);
 todos = deleteTodo(todos, 3);
 todos = addTodo(todos, 'HTML/CSS 복습'); // id 값 : 3
 console.log(todos);
+
+/*
+forEach
+>> 모든 요소에 같은 기능 적용
+
+map
+>> 모든 요소에 같은 기능 적용 + 적용 후 새로운 배열로 반환
+
+filter
+>> 모든 요소를 순회하면서 해당 조건에 맞는 요소만 새로운 배열로 반환
+*/
