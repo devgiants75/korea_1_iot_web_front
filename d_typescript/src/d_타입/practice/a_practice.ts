@@ -1,4 +1,4 @@
-// practice.ts
+// a_practice.ts
 export const tmp = '';
 
 //& ============ 유니언 =============//
