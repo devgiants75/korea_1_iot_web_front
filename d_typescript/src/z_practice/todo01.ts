@@ -42,6 +42,10 @@ function addTodo(todos: ITodoItem[], task: string): ITodoItem[] {
   // : 스프레드 연산자 (기존 리스트의 요소 + 새로운 요소)
   const newTodos = [...todos, newTodo];
 
+  // 배열의 불변성
+  // >> 기존의 배열에 요소를 추가하는 경우 배열의 변화를 리액트에서 인지하지 X
+  // todos.push(newTodo);
+
   // 변경된 할 일 목록 반환
   return newTodos;
 }
