@@ -49,5 +49,34 @@ const users: {[key: number]: User} = {
 // 사용자 데이터를 업데이트(수정)하는 함수 구현
 // >> id값을 사용하여 해당 데이터의 name 또는 age 값을 수정
 function updateUser(id: number, changes: Partial<User>) {
+  const user = users[id]; // User 타입의 객체
 
+  if (!user) {
+    console.log(`해당 id의 사용자는 없습니다.`);
+  }
+
+  // changes (객체 >> name과 age속성이 모두 선택적 속성)
+
+  users[id] = { ...user, ...changes }; // 스프레드 연산자를 사용하여 객체의 '속성: 값'의 형태만 추출
+
+  // { name: '이승아', age: 50, name: '이도경' }
+}
+
+updateUser(1, { name: '권세혁' });
+updateUser(2, { age: 10 });
+updateUser(3, { name: '최윤성' });
+
+console.log(users[1]); // { name: '권세혁', age: 50 }
+console.log(users[2]); // { name: '이도경', age: 10 }
+console.log(users[3]); // { name: '최윤성' }
+
+updateUser(1, { name: '박찬우', age: 20 });
+console.log(users[1]); // { name: '박찬우', age: 20 }
+
+// 2) Readonly
+// : 모든 속성을 읽기 전용 속성으로 변경 (상수)
+// : Readonly<T>
+
+interface Human {
+  
 }
