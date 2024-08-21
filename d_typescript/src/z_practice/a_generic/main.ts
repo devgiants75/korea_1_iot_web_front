@@ -149,10 +149,16 @@ document.addEventListener('DOMContentLoaded', () => {
   const addButton = document.getElementById('add-button') as HTMLButtonElement;
   const newTaskInput = document.getElementById('task-input') as HTMLInputElement;
 
+  // 할 일 추가 버튼 클릭 시 실행될 이벤트 리스너
   addButton.addEventListener('click', () => {
+    // 입력 값이 비어있지 않은 경우에만 input 입력 필드의 값을 할 일로 추가
     if (newTaskInput.value.trim() !== '') {
+
+      // 입력 필드의 값(value)을 할 일로 추가
       taskManager.addTask(newTaskInput.value);
+      // 변경될 할 일 목록을 화면에 렌더링
       taskManager.renderTasks('task-list');
+      // 할 일을 추가한 후, 입력 필드 초기화
       newTaskInput.value = '';
     }
   })
