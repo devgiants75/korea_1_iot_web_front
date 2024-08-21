@@ -37,7 +37,6 @@ function example() {
   let result = syncFunc01(); // 시간이 오래걸리는 작업
   console.log(`첫 번째 작업 완료: ${result}`);
 
-
   console.log(`두 번째 작업 시작`);
   let result2 = syncFunc02();
   console.log(`두 번째 작업 완료: ${result2}`);
