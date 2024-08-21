@@ -1,4 +1,5 @@
 // generic01.ts
+export const tmp = '';
 
 //! 제네릭(Generic, 일반적인)
 
