@@ -1,4 +1,5 @@
 // Todo 할 일 목록
+export const tmp = '';
 
 // 요구사항(비즈니스 로직)
 
