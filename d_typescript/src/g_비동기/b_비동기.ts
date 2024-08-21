@@ -32,7 +32,7 @@ function syncFunc01() {
     }
     
     console.log(`시간이 오래 걸리는 계산식 결과: ${sum}`);
-  }, 0); // 비동기 처리를 위한 setTimeout 사용
+  }, 10); // 비동기 처리를 위한 setTimeout 사용
 }
 
 function syncFunc02() {
