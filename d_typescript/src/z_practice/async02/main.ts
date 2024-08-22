@@ -55,9 +55,7 @@ async function fetchPhotos(page: number) {
     // 0 * 4, 1 * 4 >> 0 ~ 3
     // 1 * 4, 2 * 4 >> 4 ~ 7
 
-    const renderPhotos: Photo[] = photos.splice((page - 1) * photoPerPage, page * photoPerPage);
-
-    return renderPhotos;
+    return photos.slice((page - 1) * photoPerPage, page * photoPerPage);
   } catch (error) {
     console.error('Failed');
     return [];
@@ -100,8 +98,6 @@ document.getElementById('next-button')!.addEventListener('click', () => {
   currentPage++;
   updatePhotos();
 });
-
-
 
 // 다음 버튼 이벤트
 
