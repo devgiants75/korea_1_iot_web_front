@@ -82,5 +82,36 @@ function renderPhotos(photos: Photo[]) {
     `;
     container.appendChild(photoElement);
   });
-
 }
+
+//! 버튼 이벤트 등록
+// 이전 버튼 이벤트
+document.getElementById('prev-button')!.addEventListener('click', () => {
+  // 현재 페이지가 1보다 크면 이전 페이지로 이동 (로직 실행)
+  if (currentPage > 1) {
+    currentPage--;
+    updatePhotos();
+  }
+});
+
+// 다음 버튼 이벤트
+document.getElementById('next-button')!.addEventListener('click', () => {
+  // 다음 페이지로 이동
+  currentPage++;
+  updatePhotos();
+});
+
+
+
+// 다음 버튼 이벤트
+
+//? 전체 프로젝트 실행 (사진 불러오기)
+async function updatePhotos() {
+  // 현재 페이지에 출력될 사진만 반환하는 함수
+  const photos = await fetchPhotos(currentPage);
+
+  // 4개의 사진을 렌더링하는 함수 호출
+  renderPhotos(photos);
+}
+
+updatePhotos();
