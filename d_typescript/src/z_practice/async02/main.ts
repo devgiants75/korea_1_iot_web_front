@@ -33,9 +33,16 @@ const photoPerPage = 4;
 //? 지정된 페이지의 사진들을 비동기적으로 불러오는 함수 선언
 async function fetchPhotos(page: number) {
   try {
+    const response = await fetch(`https://jsonplaceholder.typicode.com/photos?albumId=1`);
+
+    if (!response.ok) {
+      throw new Error('데이터를 가져오지 못했습니다.');
+    }
+
+    const photos: Photo[] = await response.json();
 
   } catch (error) {
     console.error('Failed');
-    return;
+    return [];
   }
 }
