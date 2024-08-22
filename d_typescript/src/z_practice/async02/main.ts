@@ -75,7 +75,7 @@ function renderPhotos(photos: Photo[]) {
   photos.forEach(photo => {
     const photoElement = document.createElement('div');
     photoElement.className = 'photo-item';
-    photoElement.innerHTML = `<img src='${photo.thumbnailUrl}' />`
+    photoElement.innerHTML = `<img src='${photo.thumbnailUrl}' alt='${photo.title}' />`
   });
 
 }
