@@ -41,7 +41,7 @@ async function fetchPhotos(page: number) {
 
     const photos: Photo[] = await response.json();
 
-    // splice(시작인덱스, 끝인덱스)
+    // slice(시작인덱스, 끝인덱스)
     // : 배열 메서드, 특정 부분을 새로운 배열로 반환
     // 시작인덱스 <= x < 끝인덱스
 
