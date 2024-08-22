@@ -65,6 +65,7 @@ async function fetchPhotos(page: number) {
 }
 
 //? 사진을 페이지에 렌더링하는 함수
+// : 4개씩 나누어진 사진 배열을 매개변수로 받아옴
 function renderPhotos(photos: Photo[]) {  
   // 사진을 표시할 HTML 요소
   const container = document.getElementById('photo-container') as HTMLElement;
@@ -75,7 +76,11 @@ function renderPhotos(photos: Photo[]) {
   photos.forEach(photo => {
     const photoElement = document.createElement('div');
     photoElement.className = 'photo-item';
-    photoElement.innerHTML = `<img src='${photo.thumbnailUrl}' alt='${photo.title}' />`
+    photoElement.innerHTML = `
+    <img src='${photo.thumbnailUrl}' alt='${photo.title}' />
+    <p>${photo.title}</p>
+    `;
+    container.appendChild(photoElement);
   });
 
 }
