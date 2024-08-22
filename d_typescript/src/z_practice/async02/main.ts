@@ -41,8 +41,41 @@ async function fetchPhotos(page: number) {
 
     const photos: Photo[] = await response.json();
 
+    // splice(시작인덱스, 끝인덱스)
+    // : 배열 메서드, 특정 부분을 새로운 배열로 반환
+    // 시작인덱스 <= x < 끝인덱스
+
+    // (page - 1) * photoPerPage, page * photoPerPage (4의 배수)
+    // : 현재 페이지의 첫 번째 사진 인덱스 계산
+    // >> 페이지 번호는 1부터 시작
+    // >> 인덱스 번호는 0부터 시작
+    //    : 페이지 번호에 -1을 한 번호에 페이지 당 사진 수를 곱셈
+    //    : 현재 페이지의 첫 번째 사진이 배열에서 몇 번째 위치하는지 계산
+
+    // 0 * 4, 1 * 4 >> 0 ~ 3
+    // 1 * 4, 2 * 4 >> 4 ~ 7
+
+    const renderPhotos: Photo[] = photos.splice((page - 1) * photoPerPage, page * photoPerPage);
+
+    return renderPhotos;
   } catch (error) {
     console.error('Failed');
     return [];
   }
+}
+
+//? 사진을 페이지에 렌더링하는 함수
+function renderPhotos(photos: Photo[]) {  
+  // 사진을 표시할 HTML 요소
+  const container = document.getElementById('photo-container') as HTMLElement;
+
+  container.innerHTML = '';
+
+  // 각 사진에 대한 HTML 요소 생성
+  photos.forEach(photo => {
+    const photoElement = document.createElement('div');
+    photoElement.className = 'photo-item';
+    photoElement.innerHTML = `<img src='${photo.thumbnailUrl}' />`
+  });
+
 }
