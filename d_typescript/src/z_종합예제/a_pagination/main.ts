@@ -112,6 +112,8 @@
     updatePageInfo();
   };
   
+  //# addEventListeners함수
+  // : 이벤트 리스너를 추가하는 함수
   const addEventListeners = (): void => {
     const prevPageButton = document.getElementById('prev-page');
     const nextPageButton = document.getElementById('next-page');
@@ -131,11 +133,12 @@
     }
   };
   
+  //# 초기화를 위한 함수
+  // : 프로젝트 초기 실행 시 동작
   const init = (): void => {
     addEventListeners();
     loadPage(currentPage);
   };
   
   document.addEventListener('DOMContentLoaded', init);
-  
 }
