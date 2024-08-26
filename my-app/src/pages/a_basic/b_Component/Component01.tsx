@@ -64,6 +64,7 @@ function Component01() {
 
   return (
     <div>
+      <h1>Component01 컴포넌트의 시작</h1>
       {/* img 태그 - HTML 기본 태그 */}
       <img src={puppy01} alt="강아지" width={100} />
 
