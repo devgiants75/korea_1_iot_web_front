@@ -22,5 +22,5 @@
   },
   "include": [
     "src"
-, "../d_typescript/src/tsExample.ts"  ]
+  ]
 }
