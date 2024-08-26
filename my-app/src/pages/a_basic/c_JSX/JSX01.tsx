@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 
 /*
 ! JSX(TSX)
@@ -43,7 +43,7 @@ function Div() {
       <div className="hello"></div>
       <div className="hello"></div>
     </>
-  )
+  );
 }
 
 //! JSX 안에서 자바스크립트 값 사용
@@ -54,25 +54,32 @@ function Div() {
 // 2. '속성=' 기호 바로 다음
 
 export default function JSX01() {
-  const welcomeMsg = '환영합니다.';
+  const welcomeMsg = "환영합니다.";
 
   const greeting = (name: string) => `안녕하세요 ${name}님`;
 
   const userInfo = {
-    name: '이승아',
-    age: 50
-  }
+    name: "이승아",
+    age: 50,
+  };
 
   // 요소의 이벤트로 함수 전달
   const handleClick = (value: string) => {
     console.log(`${value}`);
+  };
+
+  // CSS 객체(값: 문자열 지정)
+  const divStyle = {
+    backgroundColor: 'orange',
+    color: 'white',
+    padding: '10px'
   }
 
   return (
     <>
       {/* html 요소 */}
       <div>JSX01</div>
-      <p style={{ fontSize: '20px', color: 'pink' }}>안녕하세요</p>
+      <p style={{ fontSize: "20px", color: "pink" }}>안녕하세요</p>
       <input type="text" />
       <img src="" alt="" />
       <br />
@@ -87,14 +94,21 @@ export default function JSX01() {
       : 문자열, 숫자, 기타 JS 표현식 외의 객체도 모두 중괄호 내에서 작성
       */}
       <div>{welcomeMsg}</div>
-      <div>{greeting('이승아')}</div>
+      <div>{greeting("이승아")}</div>
       <div>
-        이름: {userInfo.name} /
-        나이: {userInfo.age} /
-        { 3 + 5 / 2 }
+        이름: {userInfo.name} / 나이: {userInfo.age} /{3 + 5 / 2}
       </div>
 
-      <button onClick={() => handleClick('클릭')}>클릭해주세요</button>
+      {/* 
+      요소에 이벤트 전달 시 
+      , 코드를 해석하는 과정에서 실행되지 않도록
+      >> 콜백 함수의 형태로 전달 (익명 함수의 형태)
+      */}
+      <button onClick={() => handleClick("클릭")}>클릭해주세요</button>
+
+      <div style={divStyle}>
+        DIV 요소
+      </div>
     </>
-  )
+  );
 }
