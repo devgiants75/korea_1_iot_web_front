@@ -1,5 +1,23 @@
 import React from 'react'
 
+//# 기능 함수
+function example01() {
+}
+
+function example02() {
+}
+
+export { example01 as ex01, example02 as ex02};
+
+//# 컴포넌트 함수
+function Example01() {
+  
+}
+function Example02() {
+
+}
+export { Example01, Example02 };
+
 export default function JSX02() {
   // 픽사베이(pixabay) 
   // : 이미지 경로(절대 경로)를 변수에 저장
