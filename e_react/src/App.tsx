@@ -8,8 +8,7 @@ import Basic from './pages/a_basic';
 function App() {
   return (
     <div>
-      <h1>React Project</h1>
-      <hr />
+      <h1>React Project - 기초 (리액트 개념, 컴포넌트, JSX, Props)</h1>
       <Basic />
 
     </div>
