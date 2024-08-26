@@ -13,6 +13,10 @@ export default function JSX02() {
     imageTheme: {
       width: '200px',
       height: '150px'
+    },
+    theme: {
+      backgroundColor: 'black',
+      color: 'pink'
     }
   }
 
