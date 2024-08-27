@@ -36,7 +36,35 @@ export default function UseState01() {
   const [count, setCount] = useState<number>(0);
   const [message, setMessage] = useState<string>('안녕하세요');
 
+  const handleUpClick = () => {
+    // 상태(count)를 1 증가
+    // setCount 내의 값이 count 변수에 할당
+    // >> 해당 값은 연산식으로도 작성 가능
+
+    // 1) 상태 설정 함수를 그대로 사용
+    // >> 이전의 상태를 직접 참조
+    //   ! 주로 현재(이전) 값과 관련없는 변화가 이루어질 경우 사용!
+    // setCount(count + 1); // 0 + 1
+    // setCount(count + 1); // 0 + 1
+
+    // 2) 함수형 업데이트를 사용
+    // >> 이전 상태 값을 기반으로 상태를 업데이트 하는 경우 (권장)
+    setCount(prevCount => prevCount + 1 ); // 0 + 1
+    setCount(prevCount => prevCount + 1 ); // 1 + 1
+    setCount(prevCount => prevCount + 1 ); // 2 + 1
+  }
+
+  const handleDownClick = () => {
+    setCount(prevCount => prevCount - 1);
+  }
+
   return (
-    <div>UseState01</div>
+    <div>
+      <p style={{ color: 'blue' }}>useState 최신 상태 관리</p>
+      
+      <p>You clicked {count} times</p>
+      <button onClick={handleUpClick}>카운트를 증가시킵니다.</button>
+      <button onClick={handleDownClick}>카운트를 감소시킵니다.</button>
+    </div>
   )
 }
