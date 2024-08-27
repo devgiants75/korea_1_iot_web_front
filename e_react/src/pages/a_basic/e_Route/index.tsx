@@ -17,7 +17,15 @@ import React from 'react'
 ! 리액트 라우터 사용 방법
 
 1) 프로젝트에 라우터 기능을 적용
->> 프로젝트 최상단
+>> 프로젝트 최상단인 src/index.tsx 파일에서
+  BrowserRouter를 적용 
+>> 자식 컴포넌트들이 라우팅 기능을 사용할 수 있도록 작성
+
+2) Routes
+  : 여러 개의 Route를 담을 수 있는 컴포넌트
+  >> 여러 개의 Route 중 각각의 path(경로)에 일치하는 라우트 단 하나만을 렌더링 시켜주는 역할
+
+3) Route
 */
 
 function index() {
