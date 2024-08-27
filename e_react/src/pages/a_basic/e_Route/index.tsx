@@ -13,6 +13,11 @@ import React from 'react'
 ! 리액트 라우터 설치 방법
 : npm install react-router-dom
 : npm i react-router-dom
+
+! 리액트 라우터 사용 방법
+
+1) 프로젝트에 라우터 기능을 적용
+>> 프로젝트 최상단
 */
 
 function index() {
