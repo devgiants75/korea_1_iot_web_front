@@ -25,20 +25,44 @@ function Item({ name, isPacked }: IItem) {
   // hello.a
   // hello.b 
 
+  // ctrl + command + space 
+  // 시작 버튼 + .
+  
   //! if 조건문을 사용한 조건부 렌더링
-  if (isPacked) {
-    return (
-      // ctrl + command + space 
-      // 시작 버튼 + .
-      <li>{name} ❤</li>
-    )
-  } else {
-    return (
-      <li>{name}</li>
-    )
-  }
-}
+  // if (isPacked) {
+  //   return (
+  //     <li>{name} ❤</li>
+  //   )
+  // } else {
+  //   return (
+  //     <li>{name}</li>
+  //   )
+  // }
 
+  //! 삼항 연산자를 사용한 조건부 렌더링
+  // : 조건 ? 참일 경우 : 거짓일 경우
+  // return (
+  //   <li>
+  //     {/* HTML 내에서 JS문법 사용 시: {}내에 작성 */}
+  //     { isPacked ? name + '👍' : name }
+  //   </li>
+  // )
+
+  //! 논리 연산자를 사용한 조건부 렌더링
+  return (
+    <li>
+      {/*  
+        논리 연산자
+        && 연산자 (a && b: 둘다 true 여야만 true값이 반환)
+
+        A && B
+        - A의 값이 false인 경우 B의 값 출력 (X)
+        - A의 값이 true인 경우 B의 값 출력 (O)
+      */}
+      {name} {isPacked && '✔'}
+    </li>
+  )
+}
 
 //# 부모 컴포넌트
 export default function Rendering01() {
