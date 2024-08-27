@@ -1,8 +1,11 @@
 import React from 'react'
+
 //! 파일명까지 명시
-import Props01 from './d_Props/Props01';
 import ReactExample from './a_React/ReactExample';
 import Component01 from './b_Component/Component01';
+
+import Props01 from './d_Props/Props01';
+import Props02 from './d_Props/Props02';
 
 //! index라는 이름을 가진 파일은 폴더명까지만 명시 가능
 import MainComponent from './b_Component';
@@ -23,6 +26,7 @@ export default function index() {
 
       <h2>d_Props 리액트의 데이터 전달 - Props (부모 - 자식)</h2>
       <Props01 />
+      <Props02 />
     </div>
   )
 }

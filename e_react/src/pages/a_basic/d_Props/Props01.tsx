@@ -43,6 +43,10 @@ type MultiPropsType = {
 // b = 2;
 
 function MultiProps({ name, colorProps }: MultiPropsType) {
+  // {name, age}의 매개변수에
+  // 데이터 person을 전달 (person = {name: '이승아', age: 50})
+  // >> name=person.name, age=person.age
+
   return (
     <div style={{ color: colorProps}}>반갑습니다. {name}님</div>
   )
@@ -63,7 +67,7 @@ export default function Props01() {
 
   return (
     <div>
-      {/* props의 경우 객체로 전달! */}
+      {/* props의 경우 객체로 전달! >> 함수에서는 해당 객체가 매개변수에 전달 */}
       <ChildComponent name='이승아' />
       <ChildComponent name='이도경' />
 
