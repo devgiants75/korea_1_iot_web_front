@@ -11,7 +11,7 @@ import Hooks from './pages/b_hooks';
 function App() {
   return (
     <div>
-      <h1>React Project - 기초 (리액트 개념, 컴포넌트, JSX, Props)</h1>
+      <h1>React Project</h1>
 
       {/* Routes태그: Route를 감싸는 컴포넌트 */}
       <Routes>

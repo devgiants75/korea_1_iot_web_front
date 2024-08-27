@@ -1,14 +1,21 @@
-import React from 'react'
+import React from "react";
 
-
+// 전체 파일 정렬
+// ctrl + a: 전체 선택
+// ctrl + k + f: 포맷터 사용
 function Index() {
-
   return (
     <div>
-      <h2>리액트의 Hook</h2>
+      <h1
+        style={{
+          backgroundColor: "black",
+          color: "white",
+        }}
+      >
+        리액트 Hooks
+      </h1>
     </div>
-  )
+  );
 }
 
-
-export default Index
+export default Index;
