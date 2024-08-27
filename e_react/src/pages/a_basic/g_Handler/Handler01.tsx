@@ -21,6 +21,8 @@ interface ConsoleProps {
 // >> 부모 컴포넌트에서 속성으로 문자열 message의 값과
 //    해당 컴포넌트 태그들 사이에 내용을 전달 받음
 function ConsoleButton({ message, children } : ConsoleProps) {
+  // const message = 'A를 동작';
+  
   return (
     <button onClick={() => { console.log(`${message}`); }}>
       {children}
