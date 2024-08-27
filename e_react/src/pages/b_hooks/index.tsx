@@ -6,12 +6,7 @@ import React from "react";
 function Index() {
   return (
     <div>
-      <h1
-        style={{
-          backgroundColor: "black",
-          color: "white",
-        }}
-      >
+      <h1 style={{ backgroundColor: "black", color: "white" }}>
         리액트 Hooks
       </h1>
     </div>
