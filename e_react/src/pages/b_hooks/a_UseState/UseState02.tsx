@@ -16,7 +16,25 @@ const person = {
   age: 50,
   hobby: '자전거'
 }
+
+const person1 =  {
+  name: '이도경',
+  age: 60
+}
+
 const person2 = { ...person, name: '이도경', hobby: '독서' };
+const person3 = { ...person, ...person1 };
+
+//! 리액트 상태에서 객체를 변경할 때
+const book = {
+  title: '안녕',
+  author: '이승아'
+}
+
+book.title = 'hello'; // 리액트에서 상태 변화 감지 X
+
+// >> setBook({ ...book, title: 'hello'});
+//    : 상태 설정 함수를 사용 + 새로운 참조값에 데이터를 담아 전달
 
 export default function UseState02() {
   const [inputValue, setInputValue] = useState<string>('');
