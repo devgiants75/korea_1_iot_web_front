@@ -6,6 +6,18 @@ import React, { useState } from 'react'
 // - 리액트의 이벤트 핸들러와 함께 사용
 // >> UI에서 발생하는 이벤트에 반응하여 상태를 변화
 
+//! 여러 개의 입력 상태 관리
+// >> 스프레드 연산자, 비구조화 할당
+const fruits = ['사과', '바나나', '망고'];
+const fruits2 = [...fruits];
+
+const person = {
+  name: '이승아',
+  age: 50,
+  hobby: '자전거'
+}
+const person2 = { ...person, name: '이도경', hobby: '독서' };
+
 export default function UseState02() {
   const [inputValue, setInputValue] = useState<string>('');
 
@@ -27,10 +39,13 @@ export default function UseState02() {
 
       {/* 
       input의 텍스트를 p 태그의 내용으로 전달하는 이벤트 설정 
-      
       */}
       <input type="text" value={inputValue} onChange={handleInputChange}/>
       {/* 
+      >> onChange 이벤트
+        : 사용자가 요소에 변화를 일으킬 때 마다 발생하는 이벤트
+        EX) input, select, textarea 등의 요소에 적용
+
       <select onChange={handleInputChange}>
         <option value="1">1</option>
         <option value="2">2</option>
@@ -39,6 +54,8 @@ export default function UseState02() {
 
       <button onClick={handleResetClick}>초기화 버튼</button>
       <p>Input Value: {inputValue}</p>
+
+      <hr />
     </div>
   )
 }
