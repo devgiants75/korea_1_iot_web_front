@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from "react";
 
 /*
 ! useState를 사용한 이벤트 처리 & 상태 관리
@@ -35,9 +35,69 @@ interface IFormData {
 }
 
 export default function UseState04() {
+  //! 폼 데이터 상태 관리
+  const [formData, setFormData] = useState<IFormData>({
+    id: "",
+    password: "",
+    email: "",
+  });
 
+  const { id, password, email } = formData;
+
+  const handleSignUpSubmit = () => {
+
+  }
+
+  const handleInputChange = () => {
+
+  }
 
   return (
-    <div>UseState04</div>
-  )
+    <div
+      style={{
+        margin: "20px",
+        padding: "20px",
+        border: "1px solid #ddd",
+        textAlign: "center"
+      }}
+    >
+      <h3>회원가입 구현</h3>
+      <form onSubmit={handleSignUpSubmit}>
+        <div>
+          <label>
+            아이디:
+            <input
+              type="text"
+              name="id"
+              value={id}
+              onChange={handleInputChange}
+            />
+          </label>
+        </div>
+        <div>
+          <label>
+            비밀번호:
+            <input
+              type="text"
+              name="password"
+              value={password}
+              onChange={handleInputChange}
+            />
+          </label>
+        </div>
+        <div>
+          <label>
+            이메일:
+            <input
+              type="text"
+              name="email"
+              value={email}
+              onChange={handleInputChange}
+            />
+          </label>
+        </div>
+        <button type="submit">회원가입</button>
+      </form>
+    </div>
+  );
 }
