@@ -4,6 +4,8 @@ import UseState02 from "./a_UseState/UseState02";
 import UseState03 from "./a_UseState/UseState03";
 import UseState04 from "./a_UseState/UseState04";
 import UseState05 from "./a_UseState/UseState05";
+import ChildComponent from "./a_UseState/ChildComponent";
+import UseState06 from "./a_UseState/UseState06";
 
 // 전체 파일 정렬
 // ctrl + a: 전체 선택
@@ -21,6 +23,7 @@ function Index() {
       <UseState03 />
       <UseState04 />
       <UseState05 />
+      <UseState06 />
     </div>
   );
 }
