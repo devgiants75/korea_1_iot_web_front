@@ -80,13 +80,34 @@ export default function UseState02() {
     // { ...login, id: '안녕' }
 
     const { name, value } = e.target;
-    
+
     setLogin({
       ...login, // id와 password 속성을 모두 가지는 login 객체
 
       // name 키를 가진 값을 value로 설정 (해당 변경된 필드의 값만을 업데이트)
       [name]: value // id: 'hello'
-    })
+    });
+  }
+
+  //# 입력값을 초기화하는 함수
+  const handleResetLogin = () => {
+    setLogin({
+      id: '',
+      password: ''
+    });
+  }
+
+  //# 폼 제출 함수 (데이터 전송)
+  const handleLoginSubmit = (e: React.FormEvent) => {
+    e.preventDefault(); // 폼의 기본 제출 동작 방지
+
+    console.log('폼 데이터가 제출되었습니다: ', login);
+
+    // 데이터에 대한 활용(제출, 사용) 후에는 데이터에 대한 초기화가 필수!
+    setLogin({
+      id: '',
+      password: ''
+    });
   }
 
   return (
@@ -113,7 +134,7 @@ export default function UseState02() {
 
       <hr />
       <h5>여러 개의 입력 상태 관리</h5>
-      <form>
+      <form onSubmit={handleLoginSubmit}>
         <input 
           type="text" 
           name="id" // 객체의 속성에 접근할 때 활용할 태그의 이름
@@ -121,7 +142,7 @@ export default function UseState02() {
           value={id} 
           onChange={handleLoginChange}
         />
-        <p>아이디: </p>
+        <p>아이디: {id}</p>
 
         <input 
           type="text" 
@@ -130,7 +151,10 @@ export default function UseState02() {
           value={password} 
           onChange={handleLoginChange}
         />
-        <p>비밀번호: </p>
+        <p>비밀번호: {password}</p>
+
+        <button type="button" onClick={handleResetLogin}>초기화</button>
+        <button type="submit">전송</button>
       </form>
     </div>
   );
