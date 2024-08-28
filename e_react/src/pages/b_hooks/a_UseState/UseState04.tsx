@@ -47,7 +47,7 @@ export default function UseState04() {
     id: '',
     password: '',
     email: ''
-  })
+  });
 
   //! 각 입력 필드 변수 선언 (비구조화 할당)
   const { id, password, email } = formData;
@@ -143,6 +143,7 @@ export default function UseState04() {
               onChange={handleInputChange}
             />
           </label>
+          {errors.id && (<p style={{ color: 'red'}}>{errors.id}</p>)}
         </div>
         <div>
           <label>
@@ -154,6 +155,7 @@ export default function UseState04() {
               onChange={handleInputChange}
             />
           </label>
+          {errors.password && (<p style={{ color: 'red'}}>{errors.password}</p>)}
         </div>
         <div>
           <label>
@@ -165,6 +167,7 @@ export default function UseState04() {
               onChange={handleInputChange}
             />
           </label>
+          {errors.email && (<p style={{ color: 'red'}}>{errors.email}</p>)}
         </div>
         <button type="submit">회원가입</button>
       </form>
