@@ -7,6 +7,7 @@ import React, { useRef, useState } from 'react'
 export default function UseRef02() {
   const [count, setCount] = useState<number>(0);
   const inputRef = useRef<HTMLInputElement>(null);
+  const prevCountRef = useRef<number>(0);
 
   const handleButtonFocus = () => {
     // 'current'는 참조하는 DOM 요소를 나타냄
@@ -17,7 +18,10 @@ export default function UseRef02() {
   }
 
   const incrementCount = () => {
-    setCount(prevCount => prevCount + 1);
+    setCount(prevCount => {
+      prevCountRef.current = prevCount;
+      return prevCount + 1;
+    });
   }
 
   return (
@@ -27,7 +31,7 @@ export default function UseRef02() {
       <hr />
 
       <p>현재 카운트: {count}</p>
-      <p>이전 카운트: {}</p>
+      <p>이전 카운트: {prevCountRef.current}</p>
       <button onClick={incrementCount}>증가</button>
     </div>
   )
