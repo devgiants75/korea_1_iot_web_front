@@ -119,7 +119,7 @@ export default function UseState04() {
 
       // 변경된 필드의 값을 업데이트
       [name]: value
-    })
+    });
   }
 
   return (
