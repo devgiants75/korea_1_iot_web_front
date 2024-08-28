@@ -42,12 +42,22 @@ export default function UseState04() {
     email: "",
   });
 
+  //! 폼 입력 오류 메시지 상태 관리
+  const [errors, setErrors] = useState<IFormData>({
+    id: '',
+    password: '',
+    email: ''
+  })
+
+  //! 각 입력 필드 변수 선언 (비구조화 할당)
   const { id, password, email } = formData;
 
+  //! 폼 제출 이벤트를 처리하는 이벤트 핸들러
   const handleSignUpSubmit = () => {
 
   }
 
+  //! 입력 필드의 변경을 감지하는 이벤트 핸들러
   const handleInputChange = () => {
 
   }
