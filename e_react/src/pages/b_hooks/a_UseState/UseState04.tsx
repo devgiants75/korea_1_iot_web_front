@@ -53,8 +53,46 @@ export default function UseState04() {
   const { id, password, email } = formData;
 
   //! 폼 제출 이벤트를 처리하는 이벤트 핸들러
-  const handleSignUpSubmit = () => {
+  const handleSignUpSubmit = (e: React.FormEvent) => {
+    //? 폼 제출에 대한 기본 동작을 방지
+    e.preventDefault();
 
+    //? 임시 오류 메시지 객체 생성
+    // >> 아이디, 비밀번호, 이메일 순으로 오류 메시지를 담아두는 객체
+    // >> 최종 유효성 검사가 끝나면 해당 객체를 setErrors에 전달
+    let tempErrors = {
+      id: '',
+      password: '',
+      email: ''
+    }
+
+    //? 폼의 유효성 상태를 추적하는 변수 
+    // : boolean 타입의 변수
+    // >> 하나라도 유효하지 않으면 false로 지정
+    let isValid = true;
+
+    // == 아이디 유효성 검사 ==
+    if (!id) { // 아이디 입력 필드가 비워져 있으면
+      tempErrors.id = '아이디를 입력해주세요.'; // 오류 메시지 설정
+      isValid = false;
+    }
+
+    // == 비밀번호 유효성 검사 ==
+    if (!password) { // 비밀번호 입력 필드가 비워져 있으면
+      tempErrors.password = '비밀번호를 입력해주세요.'; // 오류 메시지 설정
+      isValid = false;
+    }
+
+    // == 이메일 유효성 검사 ==
+    if (!email) { // 이메일 입력 필드가 비워져 있으면
+      tempErrors.email = '이메일을 입력해주세요.'; // 오류 메시지 설정
+      isValid = false;
+    }
+
+
+    //? 모든 입력이 유효한 경우
+    // >> 콘솔에 내용 출력
+    // >> 입력 필드 초기화
   }
 
   //! 입력 필드의 변경을 감지하는 이벤트 핸들러
