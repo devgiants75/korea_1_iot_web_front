@@ -89,10 +89,23 @@ export default function UseState04() {
       isValid = false;
     }
 
+    //? 오류 상태를 업데이트
+    setErrors(tempErrors);
 
     //? 모든 입력이 유효한 경우
     // >> 콘솔에 내용 출력
     // >> 입력 필드 초기화
+    if (isValid) {
+      console.log('회원 가입 데이터: ', formData);
+      alert(`회원가입을 축하합니다. ${id}님`);
+
+      // 데이터 활용 후 필드 초기화
+      setFormData({
+        id: '',
+        password: '',
+        email: ''
+      })
+    }
   }
 
   //! 입력 필드의 변경을 감지하는 이벤트 핸들러
