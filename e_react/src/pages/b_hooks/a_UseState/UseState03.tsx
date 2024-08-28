@@ -1,5 +1,9 @@
 import React, { useState } from "react";
 
+// Prettier 플러그인 사용 코드 정렬(포맷터)
+// ctrl + a
+// ctrl + k + f
+
 //! React 이벤트 객체의 타입 정의
 
 // == 이벤트 타입 ==
