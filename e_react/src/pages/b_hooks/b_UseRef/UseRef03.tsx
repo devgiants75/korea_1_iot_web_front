@@ -56,12 +56,22 @@ interface ItemComponentProps {
 }
 
 const ItemComponent = ({ item, onRemove, onUpdate }: ItemComponentProps) => {
+
+  //! onUpdate함수: 부모 컴포넌트에서 정의된 함수
+  // const handleUpdateAmount = (id: number, amount: number) => {
+  //   setItems(
+  //     items.map((item) => (item.id === id ? { ...item, amount } : item))
+  //   );
+  // };  
+
   return (
     <div>
       <strong>{item.name}</strong>
       <input
         type="number"
         value={item.amount}
+        // onUpdate(item.id, Number(e.target.value);
+        // >> handleUpdateAmount(item.id, Number(e.target.value)
         onChange={(e) => onUpdate(item.id, Number(e.target.value))}
       />
       <button onClick={() => onRemove(item.id)}>삭제</button>
