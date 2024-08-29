@@ -12,7 +12,7 @@ const ChildComponent = React.memo(({ count }: { count: number }) => {
 });
 
 //# 부모 컴포넌트
-export default function UseMemo02() {
+function UseMemo02() {
   const [count, setCount] = useState<number>(0);
   const [text, setText] = useState<string>("");
 
@@ -30,3 +30,6 @@ export default function UseMemo02() {
     </div>
   );
 }
+
+// 컴포넌트를 메모이제이션하고 export default로 내보내기
+export default React.memo(UseMemo02);
