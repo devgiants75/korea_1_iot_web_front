@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 //! 배열 렌더링 (추가, 조회, 수정, 삭제 - CRUD)
 // >> 해당 과정에서 배열 내부의 각 요소를 구분지을 id값이 필요
@@ -71,6 +71,32 @@ const ItemComponent = ({ item, onRemove, onUpdate }: ItemComponentProps) => {
 
 //# 부모 컴포넌트
 export default function UseRef03() {
+
+  const [items, setItems] = useState<IItem[]>(initialItems);
+
+  //? 새로운 아이템을 생성하는 함수
+  const handleCreateItem = (name: string, amount: number) => {
+    const newItem = {
+      id: 4,
+      name,
+      amount
+    };
+
+    setItems([...items, newItem]);
+  }
+
+  //? id와 수량을 전달받아 데이터를 수정하는 함수
+  const handleUpdateAmount = (id: number, amount: number) => {
+    setItems(
+      items.map(item => item.id === id ? { ...item, amount } : item)
+    );
+  }
+
+  //? id값을 전달 받아 삭제하고자 하는 요소를 filtering하는 함수
+  const handleRemove = (id: number) => {
+    setItems(items.filter(item => item.id !== id));
+  }
+
   return (
     <div>
       {/* 
