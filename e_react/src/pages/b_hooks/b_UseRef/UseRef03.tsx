@@ -71,31 +71,31 @@ const ItemComponent = ({ item, onRemove, onUpdate }: ItemComponentProps) => {
 
 //# 부모 컴포넌트
 export default function UseRef03() {
-
   const [items, setItems] = useState<IItem[]>(initialItems);
+  
 
   //? 새로운 아이템을 생성하는 함수
   const handleCreateItem = (name: string, amount: number) => {
     const newItem = {
       id: 4,
       name,
-      amount
+      amount,
     };
 
     setItems([...items, newItem]);
-  }
+  };
 
   //? id와 수량을 전달받아 데이터를 수정하는 함수
   const handleUpdateAmount = (id: number, amount: number) => {
     setItems(
-      items.map(item => item.id === id ? { ...item, amount } : item)
+      items.map((item) => (item.id === id ? { ...item, amount } : item))
     );
-  }
+  };
 
   //? id값을 전달 받아 삭제하고자 하는 요소를 filtering하는 함수
   const handleRemove = (id: number) => {
-    setItems(items.filter(item => item.id !== id));
-  }
+    setItems(items.filter((item) => item.id !== id));
+  };
 
   return (
     <div>
@@ -121,7 +121,20 @@ export default function UseRef03() {
       ))}
 
       <hr />
-      <button>새 항목 추가</button>
+      <button onClick={() => handleCreateItem("새로운 항목", 1)}>
+        새 항목 추가
+      </button>
+      <>
+        {items.map((item) => (
+          <div key={item.id}>
+            <ItemComponent
+              item={item}
+              onRemove={handleRemove}
+              onUpdate={handleUpdateAmount}
+            />
+          </div>
+        ))}
+      </>
     </div>
   );
 }
