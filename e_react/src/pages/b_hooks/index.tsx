@@ -11,7 +11,7 @@ import Practice01 from "./a_UseState/Practice01";
 import UseRef03 from "./b_UseRef/UseRef03";
 import UseEffect01 from "./c_UseEffect/UseEffect01";
 import UseEffect02 from "./c_UseEffect/UseEffect02";
-import WebCamPractice from "./c_UseEffect/Practice01";
+// import WebCamPractice from "./c_UseEffect/Practice01";
 
 // 전체 파일 정렬
 // ctrl + a: 전체 선택
@@ -43,7 +43,7 @@ function Index() {
       <h2>리액트 Hooks - useEffect</h2>
       <UseEffect01 />
       <UseEffect02 />
-      <WebCamPractice />
+      {/* <WebCamPractice /> */}
     </div>
   );
 }
