@@ -1,7 +1,71 @@
 import React from 'react'
 
+//! 배열 렌더링 (추가, 조회, 수정, 삭제 - CRUD)
+// >> 해당 과정에서 배열 내부의 각 요소를 구분지을 id값이 필요
+
+//? 동적 배열 렌더링 
+// : JS 내장 함수 (map, filter) 사용
+
+//? 장바구니 구현
+
+// 장바구니의 타입 정의
+interface IItem {
+  id: number;
+  name: string;
+  amount: number;
+}
+
+// 기존 장바구니 목록
+const initialItems: IItem[] = [
+  { id: 1, name: '사과', amount: 2 },
+  { id: 2, name: '칸쵸', amount: 3 },
+  { id: 3, name: '우유', amount: 1 },
+]
+
+//# 자식 컴포넌트
+// : 장바구니 항목 1개 
+// >> 부모로 부터 각 아이템을 인자로 받아 하나의 장바구니 항목을 생성
+
+interface IItemProps {
+  item: IItem;
+}
+
+// function Item({ item }: { item: IItem }) {}
+function Item({ item }: IItemProps) {
+  return (
+    <div>
+      <p>
+        <b>{item.name}</b>
+        amount: {item.amount}
+      </p>
+    </div>
+  )
+}
+
+//# 부모 컴포넌트
 export default function UseRef03() {
   return (
-    <div>UseRef03</div>
+    <div>
+      {/* 
+        <Item item={initialItems[0]} />
+        <Item item={initialItems[1]} />
+        <Item item={initialItems[2]} /> 
+      */}
+      {/* 
+        {initialItems.map((item, index) => (
+          // map과 filter 사용 시 생성되는 컴포넌트 또는 요소에는
+          // , 각각을 구분할 수 있는 key값을 전달!
+          <Item item={item} key={index} />
+        ))} 
+      */}
+      {initialItems.map(item => (
+        // map과 filter 사용 시 생성되는 컴포넌트 또는 요소에는
+        // , 각각을 구분할 수 있는 key값을 전달!
+
+        // 배열 안의 객체 데이터는 각 데이터를 구분할 수 있는
+        // : 고유하고 변화되지 않는 id값 사용을 권장
+        <Item item={item} key={item.id} />
+      ))} 
+    </div>
   )
 }
