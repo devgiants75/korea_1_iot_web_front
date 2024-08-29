@@ -17,6 +17,7 @@ type Post = {
 export default function UseEffect02() {
   //? 게시물 상태 관리
   const [posts, setPosts] = useState<Post[]>([]);
+  const [searchTerm, setSearchTerm] = useState<string>('');
 
   //? 로딩 상태 & 에러 상태 관리
   const [loading, setLoading] = useState<boolean>(false);
