@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from "react";
 
 //! jsonplaceholder의 posts 데이터를 비동기 함수로 가져오기
 // >> async, await, fetch()
@@ -12,7 +12,7 @@ type Post = {
   id: number;
   title: string;
   body: string;
-}
+};
 
 export default function UseEffect02() {
   //? 게시물 상태 관리
@@ -28,7 +28,9 @@ export default function UseEffect02() {
     setError(null);
 
     try {
-      const response = await fetch(`https://jsonplaceholder.typicode.com/posts`);
+      const response = await fetch(
+        `https://jsonplaceholder.typicode.com/posts`
+      );
 
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
@@ -44,16 +46,42 @@ export default function UseEffect02() {
     }
   }
 
+  useEffect(() => {
+    fetchPosts();
+    console.log("컴포넌트가 마운트되면 실행");
+  }, []);
+
   return (
-    <div style={{
-      margin: '0 auto',
-      maxWidth: '800px',
-      padding: '20px',
-      backgroundColor: 'lightcoral',
-    }}>
+    <div
+      style={{
+        margin: "0 auto",
+        maxWidth: "800px",
+        padding: "20px",
+        backgroundColor: "lightcoral",
+      }}
+    >
       <h3>Posts 게시물</h3>
 
-      <button>게시물 불러오기</button>
+      {/* 
+        <button onClick={fetchPosts}>게시물 불러오기</button> 
+      */}
+
+      <input
+        type="text"
+        placeholder="검색어를 입력하세요."
+        value={searchTerm}
+        onChange={(e) => setSearchTerm(e.target.value)}
+      />
+
+      {loading && <div>게시물을 로딩중입니다.</div>}
+      {error && <div>Error: {error}</div>}
+
+      {posts.map((post) => (
+        <li key={post.id}>
+          <h4>{post.title}</h4>
+          <p>{post.body}</p>
+        </li>
+      ))}
     </div>
-  )
+  );
 }
