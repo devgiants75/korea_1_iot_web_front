@@ -39,3 +39,22 @@
   padding: 0;
 }
 
+.todo-item {
+  margin-bottom: 5px;
+}
+
+.todo-text {
+  cursor: pointer;
+}
+
+.todo-text.completed {
+  text-decoration: line-through;
+  color: #888;
+}
+
+.delete-button {
+  color: red;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
