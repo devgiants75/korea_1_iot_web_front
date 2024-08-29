@@ -12,9 +12,10 @@ import UseRef03 from "./b_UseRef/UseRef03";
 import UseEffect01 from "./c_UseEffect/UseEffect01";
 import UseEffect02 from "./c_UseEffect/UseEffect02";
 import TodoAppLocalStorage from "./z_Todo/TodoAppLocalStorage";
-import UseMemo01 from "./d_Use/UseMemo01";
-import UseMemo02 from "./d_Use/UseMemo02";
-import UseCallback from "./d_Use/UseCallback";
+import UseMemo01 from "./d_Use_Memo_Callback/UseMemo01";
+import UseMemo02 from "./d_Use_Memo_Callback/UseMemo02";
+import UseCallback from "./d_Use_Memo_Callback/UseCallback";
+
 // import WebCamPractice from "./c_UseEffect/Practice01";
 
 // 전체 파일 정렬
