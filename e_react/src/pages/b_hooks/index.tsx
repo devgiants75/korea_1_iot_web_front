@@ -9,6 +9,7 @@ import UseState06 from "./a_UseState/UseState06";
 import UseRef01 from "./b_UseRef/UseRef01";
 import UseRef02 from "./b_UseRef/UseRef02";
 import Practice01 from "./a_UseState/Practice01";
+import UseRef03 from "./b_UseRef/UseRef03";
 
 // 전체 파일 정렬
 // ctrl + a: 전체 선택
@@ -33,6 +34,7 @@ function Index() {
       <hr />
       <UseRef01 />
       <UseRef02 />
+      <UseRef03 />
     </div>
   );
 }
