@@ -1,5 +1,5 @@
 import React, { useCallback, useMemo, useRef, useState } from "react";
-import './Todo.css';
+import "./Todo.css";
 
 interface TodoItem {
   id: number;
@@ -9,31 +9,38 @@ interface TodoItem {
 
 export default function Index() {
   const [todos, setTodos] = useState<TodoItem[]>([]);
-  const [filter, setFilter] = useState<'all' | 'active' | 'completed'>('all');
+  const [filter, setFilter] = useState<"all" | "active" | "completed">("all");
   const nextIdRef = useRef<number>(0);
 
   const addTodo = useCallback((text: string) => {
     const newTodo = {
       id: nextIdRef.current,
       text,
-      completed: false
+      completed: false,
     };
 
-    setTodos([ ...todos, newTodo ]);
+    setTodos([...todos, newTodo]);
   }, []);
 
   const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === 'Enter') {
+    if (e.key === "Enter") {
       const input = e.target as HTMLInputElement;
-      if (input.value.trim() !== '') {
+      if (input.value.trim() !== "") {
         addTodo(input.value.trim());
-        input.value = '';
+        input.value = "";
       }
     }
-  }
+  };
 
-  const filteredTodos = useMemo((id: number) => {
-
+  const filteredTodos = useMemo(() => {
+    switch (filter) {
+      case "all":
+        return todos;
+      case "active":
+        return todos.filter((todo) => !todo.completed);
+      case "completed":
+        return todos.filter((todo) => todo.completed);
+    }
   }, [todos, filter]);
 
   return (
@@ -56,7 +63,22 @@ export default function Index() {
           <button className="btn">Completed</button>
         </div>
         <ul className="todo-list">
-
+          {filteredTodos.map((todo) => (
+            <li key={todo.id} className="todo-item">
+              <span
+                className={`todo-text ${todo.completed ? "completed" : ""}`}
+                onClick={() => toggleTodo(todo.id)}
+              >
+                {todo.text}
+              </span>
+              <button
+                onClick={() => deleteTodo(todo.id)}
+                className="delete-button"
+              >
+                삭제
+              </button>
+            </li>
+          ))}
         </ul>
       </div>
     </div>
