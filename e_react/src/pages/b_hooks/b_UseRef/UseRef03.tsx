@@ -1,9 +1,9 @@
-import React from 'react'
+import React from "react";
 
 //! 배열 렌더링 (추가, 조회, 수정, 삭제 - CRUD)
 // >> 해당 과정에서 배열 내부의 각 요소를 구분지을 id값이 필요
 
-//? 동적 배열 렌더링 
+//? 동적 배열 렌더링
 // : JS 내장 함수 (map, filter) 사용
 
 //? 장바구니 구현
@@ -17,13 +17,13 @@ interface IItem {
 
 // 기존 장바구니 목록
 const initialItems: IItem[] = [
-  { id: 1, name: '사과', amount: 2 },
-  { id: 2, name: '칸쵸', amount: 3 },
-  { id: 3, name: '우유', amount: 1 },
-]
+  { id: 1, name: "사과", amount: 2 },
+  { id: 2, name: "칸쵸", amount: 3 },
+  { id: 3, name: "우유", amount: 1 },
+];
 
 //# 자식 컴포넌트
-// : 장바구니 항목 1개 
+// : 장바구니 항목 1개
 // >> 부모로 부터 각 아이템을 인자로 받아 하나의 장바구니 항목을 생성
 
 interface IItemProps {
@@ -39,8 +39,35 @@ function Item({ item }: IItemProps) {
         amount: {item.amount}
       </p>
     </div>
-  )
+  );
 }
+
+//! useRef를 사용한 고유한 id값 생성
+
+//# '각 아이템'을 보여주는 컴포넌트
+// : 수정, 삭제 기능 포함
+
+// 컴포넌트 props 타입 정의
+interface ItemComponentProps {
+  item: IItem; // id, name, amount
+
+  onRemove: (id: number) => void;
+  onUpdate: (id: number, amount: number) => void;
+}
+
+const ItemComponent = ({ item, onRemove, onUpdate }: ItemComponentProps) => {
+  return (
+    <div>
+      <strong>{item.name}</strong>
+      <input
+        type="number"
+        value={item.amount}
+        onChange={(e) => onUpdate(item.id, Number(e.target.value))}
+      />
+      <button onClick={() => onRemove(item.id)}>삭제</button>
+    </div>
+  );
+};
 
 //# 부모 컴포넌트
 export default function UseRef03() {
@@ -58,14 +85,17 @@ export default function UseRef03() {
           <Item item={item} key={index} />
         ))} 
       */}
-      {initialItems.map(item => (
+      {initialItems.map((item) => (
         // map과 filter 사용 시 생성되는 컴포넌트 또는 요소에는
         // , 각각을 구분할 수 있는 key값을 전달!
 
         // 배열 안의 객체 데이터는 각 데이터를 구분할 수 있는
         // : 고유하고 변화되지 않는 id값 사용을 권장
         <Item item={item} key={item.id} />
-      ))} 
+      ))}
+
+      <hr />
+      <button>새 항목 추가</button>
     </div>
-  )
+  );
 }
