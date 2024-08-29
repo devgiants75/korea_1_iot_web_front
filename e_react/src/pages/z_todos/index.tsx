@@ -10,9 +10,9 @@ interface TodoItem {
 export default function Index() {
   const [todos, setTodos] = useState<TodoItem[]>([]);
   const [filter, setFilter] = useState<"all" | "active" | "completed">("all");
-  const nextIdRef = useRef<number>(0);
+  const nextIdRef = useRef<number>(1);
 
-  const addTodo = useCallback((text: string) => {
+  const addTodo = (text: string) => {
     const newTodo = {
       id: nextIdRef.current,
       text,
@@ -20,7 +20,9 @@ export default function Index() {
     };
 
     setTodos([...todos, newTodo]);
-  }, []);
+    nextIdRef.current += 1;
+    console.log(todos);
+  };
 
   const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {
@@ -69,9 +71,9 @@ export default function Index() {
           onKeyDown={handleKeyPress}
         />
         <div className="buttons-container">
-          <button className="btn">All</button>
-          <button className="btn">Active</button>
-          <button className="btn">Completed</button>
+          <button className="btn" onClick={() => setFilter('all')}>All</button>
+          <button className="btn" onClick={() => setFilter('active')}>Active</button>
+          <button className="btn" onClick={() => setFilter('completed')}>Completed</button>
         </div>
         <ul className="todo-list">
           {filteredTodos.map((todo) => (
