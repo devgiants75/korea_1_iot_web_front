@@ -47,10 +47,15 @@ export default function UseEffect02() {
     }
   }
 
+  //? 컴포넌트가 마운트될 때 데이터 호출
   useEffect(() => {
     fetchPosts();
     console.log("컴포넌트가 마운트되면 실행");
   }, []);
+
+  const filteredPosts = posts.filter(post => 
+    post.title.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
   return (
     <div
@@ -77,7 +82,7 @@ export default function UseEffect02() {
       {loading && <div>게시물을 로딩중입니다.</div>}
       {error && <div>Error: {error}</div>}
 
-      {posts.map((post) => (
+      {filteredPosts.map((post) => (
         <li key={post.id}>
           <h4>{post.title}</h4>
           <p>{post.body}</p>
