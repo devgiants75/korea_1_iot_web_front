@@ -37,11 +37,22 @@ export default function Index() {
       case "all":
         return todos;
       case "active":
-        return todos.filter((todo) => !todo.completed);
+        const result = todos.filter((todo) => !todo.completed)
+        return result;
       case "completed":
         return todos.filter((todo) => todo.completed);
     }
   }, [todos, filter]);
+
+  const toggleTodo = useCallback((id: number) => {
+    setTodos(todos => todos.map(todo => 
+      todo.id === id ? {...todo, completed: !todo.completed} : todo
+    ));
+  }, []);
+
+  const deleteTodo = useCallback((id: number) => {
+    setTodos(todos => todos.filter(todo => todo.id !== id));
+  }, []);
 
   return (
     <div>
