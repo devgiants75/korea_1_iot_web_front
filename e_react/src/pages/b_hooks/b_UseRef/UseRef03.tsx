@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 
 //! 배열 렌더링 (추가, 조회, 수정, 삭제 - CRUD)
 // >> 해당 과정에서 배열 내부의 각 요소를 구분지을 id값이 필요
@@ -72,17 +72,22 @@ const ItemComponent = ({ item, onRemove, onUpdate }: ItemComponentProps) => {
 //# 부모 컴포넌트
 export default function UseRef03() {
   const [items, setItems] = useState<IItem[]>(initialItems);
-  
+  // useRef
+  // >> 컴포넌트가 리렌더링되더라도 해당 값은 유지
+  // const 참조값을 담을 변수 = useRef<데이터의타입>(초기값);
+  const nextId = useRef<number>(4);
 
   //? 새로운 아이템을 생성하는 함수
   const handleCreateItem = (name: string, amount: number) => {
     const newItem = {
-      id: 4,
+      id: nextId.current,
       name,
       amount,
     };
 
     setItems([...items, newItem]);
+    // nextId.current += 1;
+    nextId.current++;
   };
 
   //? id와 수량을 전달받아 데이터를 수정하는 함수
