@@ -8,11 +8,14 @@ import NaviBar from './components/NaviBar';
 import Basic from './pages/a_basic';
 import Hooks from './pages/b_hooks';
 import RouterComponent from './pages/c_Router';
+import RouterHook from './pages/d_RouterHook';
 
-import Todos01 from './pages/z_todos';
 import Parent from './pages/c_Router/Parent';
+
 import Example01 from './pages/c_Router/Example01';
 import Example02 from './pages/c_Router/Example02';
+
+import Todos01 from './pages/z_todos';
 
 //! 리액트 프로젝트 개발 실행 명령어
 // npm run start
@@ -53,6 +56,9 @@ function App() {
           <Route path='example02' element={<Example02 />} />
         </Route>
 
+        <Route path='routerHook' element={<RouterHook />} />
+
+        {/* 예제 (참고용) */}
         <Route path='/todos01' element={<Todos01 />} />
       </Routes>
     </div>
