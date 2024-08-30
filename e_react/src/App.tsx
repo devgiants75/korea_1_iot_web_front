@@ -11,6 +11,8 @@ import RouterComponent from './pages/c_Router';
 
 import Todos01 from './pages/z_todos';
 import Parent from './pages/c_Router/Parent';
+import Example01 from './pages/c_Router/Example01';
+import Example02 from './pages/c_Router/Example02';
 
 //! 리액트 프로젝트 개발 실행 명령어
 // npm run start
@@ -35,8 +37,20 @@ function App() {
           >> 위 컴포넌트에서 라우트 경로에 따라 페이지 전환이 일어남을 명시
         */}
         <Route path='/routerComponent/*' element={<RouterComponent />} />
-        <Route path='/parent' element={<Parent />}>
+
+        {/*  
+          해당 컴포넌트에 대한 메인경로
+          >> 하위 컴포넌트를 추가 경로로 명시
+        */}
+        <Route path='/parent'>
+          {/* 
+          index 경로를 사용하여 감싸는 Route 컴포넌트의 경로에 기본적으로 렌더링될 컴포넌트를 지정 
+          */}
+          <Route index element={<Parent />} />
           
+          {/* parent 경로에 추가되는 path에 따라 보여지는 컴포넌트가 달라짐 */}
+          <Route path='example01' element={<Example01 />} />
+          <Route path='example02' element={<Example02 />} />
         </Route>
 
         <Route path='/todos01' element={<Todos01 />} />
