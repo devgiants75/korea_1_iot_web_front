@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 //! useNavigate()
@@ -55,18 +55,26 @@ export default function UseNavigate01() {
     navigate('/hooks', { state: { username: '이승아' }});
   }
 
-  // 인증이 필요한 페이지로 이동하려고 하는 경우
+  // 인증이 필요한 페이지로 이동하려고 하는 경우 
   // >> 마이페이지, 리뷰 작성, 주문 조회 등
+
+  // + 로그인되어 있지 않으면 로그인 페이지로 이동
 
   const isAuthenticated = false;
 
   const handleSignUp = () => {
-
     // 인증된 사용자만 홈화면으로 이동 가능
     if (isAuthenticated) {
       navigate('/');
     }
   }
+
+  useEffect(() => {
+    if(!isAuthenticated) {
+      navigate('/login');
+    }
+
+  }, [isAuthenticated, navigate]);
 
   return (
     <div>
