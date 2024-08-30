@@ -20,7 +20,8 @@ import UseReducer02 from "./e_UseReducer/UseReducer02";
 import Custom01 from "./f_CustomHook/Custom01";
 import Custom02 from "./f_CustomHook/Custom02";
 
-// import WebCamPractice from "./c_UseEffect/Practice01";
+import WebCamPractice from "./Practice01";
+import WebcamDrawingApp from "./Practice02";
 
 // 전체 파일 정렬
 // ctrl + a: 전체 선택
@@ -56,7 +57,6 @@ function Index() {
       <h2>리액트 Hooks - useEffect</h2>
       <UseEffect01 />
       <UseEffect02 />
-      {/* <WebCamPractice /> */}
 
       <TodoAppLocalStorage />
 
@@ -69,6 +69,9 @@ function Index() {
       <h2>리액트 Hooks - useReducer</h2>
       <UseReducer01 />
       <UseReducer02 />
+
+      <WebCamPractice />
+      <WebcamDrawingApp />
     </div>
   );
 }
