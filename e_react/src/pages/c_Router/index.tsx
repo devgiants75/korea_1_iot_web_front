@@ -1,4 +1,7 @@
 import React from 'react'
+import { Route, Routes } from 'react-router-dom'
+import Page01 from './Page01'
+import Page02 from './Page02'
 
 //! 리액트 라우터 사용 방법
 //? 1. 설치
@@ -30,7 +33,15 @@ export default function Index() {
       color: 'white'
     }}>
       <h1>리액트 라우터 돔</h1>
+      {/* 해당 컴포넌트의 현재 경로: http://localhost:3000/routerComponent */}
+      <Routes>
+        {/* 해당 컴포넌트의 현재 경로를 기준으로 "추가 경로 지정" */}
 
+        {/* 빈 슬래시(/)만 쓰는 경우: 현재 컴포넌트의 경로로 지정 */}
+        <Route path='/' element={<Page01 />} />
+        {/* 경로에 새로운 경로가 추가되는 경우: 현재 컴포넌트를 기준으로 추가 */}
+        <Route path='/page02' element={<Page02 />} />
+      </Routes>
     </div>
   )
 }
