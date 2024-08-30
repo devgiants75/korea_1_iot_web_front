@@ -30,13 +30,13 @@ import React, { useReducer, useState } from 'react'
 // - state
 // : 현재 상태 값 (관리되는 데이터)
 
-type CountState = {
+export type CountState = {
   count: number
 }
 
-type CountAction = { type: 'increment' } | { type: 'decrement'};
+export type CountAction = { type: 'increment' } | { type: 'decrement'};
 
-function reducer(state: CountState, action: CountAction): CountState {
+export function reducer(state: CountState, action: CountAction): CountState {
   switch(action.type) {
     case 'increment':
       return { count: state.count + 1 }; 
@@ -63,6 +63,15 @@ export default function UseReducer01() {
       <p>count: {count}</p>
       <button onClick={handleIncrement}>증가</button>
       <button onClick={handleDecrement}>감소</button>
+      
+      <h2>useReducer 사용한 상태관리</h2>
+      <p>count: {state.count}</p>
+      <button onClick={() => dispatch({ type: 'increment' })}>
+        증가
+      </button>
+      <button onClick={() => dispatch({ type: 'decrement' })}>
+        감소
+      </button>
     </div>
   )
 }
