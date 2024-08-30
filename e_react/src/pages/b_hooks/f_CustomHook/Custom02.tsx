@@ -40,6 +40,7 @@ export default function Custom02() {
 
   return (
     <div>
+      <p>{name}</p>
       <input
         type="text"
         name="username"

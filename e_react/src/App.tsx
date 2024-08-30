@@ -3,6 +3,8 @@ import { Route, Routes } from 'react-router-dom';
 
 import Basic from './pages/a_basic';
 import Hooks from './pages/b_hooks';
+import RouterComponent from './pages/c_Router';
+
 import Todos01 from './pages/z_todos';
 
 //! 리액트 프로젝트 개발 실행 명령어
@@ -21,6 +23,8 @@ function App() {
         {/* element속성: 해당 path속성과 일치할 경우 보여질 컴포넌트 */}
         <Route path='/basic' element={<Basic />} />
         <Route path='/hooks' element={<Hooks />} />
+        <Route path='/routerComponent' element={<RouterComponent />} />
+
         <Route path='/todos01' element={<Todos01 />} />
       </Routes>
     </div>
