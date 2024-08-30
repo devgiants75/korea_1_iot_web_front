@@ -19,6 +19,9 @@ export default function UseNavigate01() {
   // : 네비게이션(경로)과 함께 상태 전달이 가능
   // >> 해당 상태는 useLocation을 통해 접근 가능
 
+  //? 조건부 네비게이션
+  // >> 조건에 따른 페이지 전환
+
   const goToParentPage = () => {
     console.log("버튼이 클릭됨");
 
@@ -30,7 +33,7 @@ export default function UseNavigate01() {
     // 2) / 미작성 ("parent")
     // : 현재 경로 + /경로
     // >> localhost:3000/routerHook/parent
-    
+
     navigate("/parent", { state: { userId: 12345 }});
   };
 
@@ -52,6 +55,19 @@ export default function UseNavigate01() {
     navigate('/hooks', { state: { username: '이승아' }});
   }
 
+  // 인증이 필요한 페이지로 이동하려고 하는 경우
+  // >> 마이페이지, 리뷰 작성, 주문 조회 등
+
+  const isAuthenticated = false;
+
+  const handleSignUp = () => {
+
+    // 인증된 사용자만 홈화면으로 이동 가능
+    if (isAuthenticated) {
+      navigate('/');
+    }
+  }
+
   return (
     <div>
       <p>UseNavigate01 페이지입니다</p>
@@ -59,6 +75,8 @@ export default function UseNavigate01() {
       <button onClick={goToHomePage}>Home 페이지로 이동합니다</button>
       <button onClick={goToPrevPage}>이전 페이지로 이동합니다</button>
       <button onClick={goToHooksPage}>Hooks 페이지로 이동합니다</button>
+
+      <button onClick={handleSignUp}>회원가입</button>
     </div>
   );
 }
