@@ -10,6 +10,7 @@ import Hooks from './pages/b_hooks';
 import RouterComponent from './pages/c_Router';
 
 import Todos01 from './pages/z_todos';
+import Parent from './pages/c_Router/Parent';
 
 //! 리액트 프로젝트 개발 실행 명령어
 // npm run start
@@ -34,6 +35,9 @@ function App() {
           >> 위 컴포넌트에서 라우트 경로에 따라 페이지 전환이 일어남을 명시
         */}
         <Route path='/routerComponent/*' element={<RouterComponent />} />
+        <Route path='/parent' element={<Parent />}>
+          
+        </Route>
 
         <Route path='/todos01' element={<Todos01 />} />
       </Routes>
