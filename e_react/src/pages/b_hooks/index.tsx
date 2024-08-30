@@ -16,6 +16,7 @@ import UseMemo01 from "./d_Use_Memo_Callback/UseMemo01";
 import UseMemo02 from "./d_Use_Memo_Callback/UseMemo02";
 import UseCallback from "./d_Use_Memo_Callback/UseCallback";
 import UseReducer01 from "./e_UseReducer/UseReducer01";
+import UseReducer02 from "./e_UseReducer/UseReducer02";
 
 // import WebCamPractice from "./c_UseEffect/Practice01";
 
@@ -28,9 +29,6 @@ function Index() {
       <h1 style={{ backgroundColor: "black", color: "white" }}>
         리액트 Hooks
       </h1>
-
-      <h2>리액트 Hooks - useReducer</h2>
-      <UseReducer01 />
 
       <h2>리액트 Hooks - useState</h2>
       <UseState01 />
@@ -61,6 +59,10 @@ function Index() {
       <UseMemo02 />
 
       <UseCallback />
+
+      <h2>리액트 Hooks - useReducer</h2>
+      <UseReducer01 />
+      <UseReducer02 />
     </div>
   );
 }
