@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useReducer, useState } from 'react'
 
 //! React 컴포넌트의 상태 관리
 // useState VS useReducer
@@ -30,8 +30,24 @@ import React, { useState } from 'react'
 // - state
 // : 현재 상태 값 (관리되는 데이터)
 
+type CountState = {
+  count: number
+}
+
+type CountAction = { type: 'increment' } | { type: 'decrement'};
+
+function reducer(state: CountState, action: CountAction): CountState {
+  switch(action.type) {
+    case 'increment':
+      return { count: state.count + 1 }; 
+    case 'decrement':
+      return { count: state.count - 1 }; 
+  }
+}
+
 export default function UseReducer01() {
   const [count, setCount] = useState<number>(0);
+  const [state, dispatch] = useReducer(reducer, { count: 0 });
 
   const handleIncrement = () => {
     setCount(prevCount => prevCount + 1);
