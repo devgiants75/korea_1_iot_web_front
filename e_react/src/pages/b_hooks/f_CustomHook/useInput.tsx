@@ -7,9 +7,10 @@ import { useState } from "react";
 
 // >> input창에 대한 비움 처리 (초기화)
 export function useInput(initialValue: string) {
+  // useInput에 대한 호출 마다 새로운 데이터가 상태 관리
   const [value, setValue] = useState(initialValue);
 
-  const handleValueChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleValueChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setValue(e.target.value);
   } 
 
@@ -18,7 +19,11 @@ export function useInput(initialValue: string) {
   }
 
   return {
+    // 현재의 상태 값
     value,
+    // 변화에 대한 이벤트 핸들러
+    // handleValueChange,
+    // 초기화 함수
     reset,
     // 바인딩 값: UI에 직접적으로 적용될 속성과 함수를 정의
     bind: {
