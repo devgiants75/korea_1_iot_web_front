@@ -14,9 +14,14 @@ export default function UseNavigate01() {
   // >> '네비게이트'라는 이름으로 호출
   // >> 원하는 경로를 문자열 인수로 전달하여 이동
 
+  //? useNavigate 훅의 옵션
+  // - state 옵션
+  // : 네비게이션(경로)과 함께 상태 전달이 가능
+  // >> 해당 상태는 useLocation을 통해 접근 가능
+
   const goToParentPage = () => {
     console.log("버튼이 클릭됨");
-    navigate("/parent");
+    navigate("/parent", { state: { userId: 12345 }});
   };
 
   const goToHomePage = () => {
