@@ -23,7 +23,7 @@ function App() {
         {/* element속성: 해당 path속성과 일치할 경우 보여질 컴포넌트 */}
         <Route path='/basic' element={<Basic />} />
         <Route path='/hooks' element={<Hooks />} />
-        <Route path='/routerComponent' element={<RouterComponent />} />
+        <Route path='/routerComponent/*' element={<RouterComponent />} />
 
         <Route path='/todos01' element={<Todos01 />} />
       </Routes>
