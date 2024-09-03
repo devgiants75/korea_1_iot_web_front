@@ -35,7 +35,7 @@ interface UserContextType {
   setUser: React.Dispatch<React.SetStateAction<IUser | null>>;
 }
 
-const UserContext = createContext(undefined);
+const UserContext = createContext<UserContextType | undefined>(undefined);
 
 const UserProvider = ({ children }: { children: React.ReactNode }) => {
   // context 영역의 provider에서 관리할 데이터를 명시
