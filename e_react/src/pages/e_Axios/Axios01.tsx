@@ -97,12 +97,23 @@ export default function Axios01() {
       uses 데이터가 존재할 경우 UI 출력
         , 그렇지 않을 경우 p태그(데이터를 가져오는 중입니다)
       */}
+      {users ? users.map(user => (
+        <div>
+          <h4>{user.name}</h4>
+          <p>{user.email}</p>
+        </div>
+      )) : (
+        <p>데이터를 가져오는 중입니다</p>
+      )}
+
+      {/* 
       {users.map(user => (
         <div>
           <h4>{user.name}</h4>
           <p>{user.email}</p>
         </div>
-      ))}
+      ))} 
+       */}
     </div>
   )
 }
