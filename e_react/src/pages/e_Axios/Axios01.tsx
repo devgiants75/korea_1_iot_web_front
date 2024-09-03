@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react'
-import axios from 'axios';
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 
 //! Axios
 // : JS에서 HTTP 요청을 실행하기 위한 라이브러리
@@ -61,7 +61,15 @@ interface User {
 }
 
 export default function Axios01() {
+  // jsonplaceholder에서 가져오는 데이터를 상태 관리
   const [users, setUsers] = useState<User[] | null>(null);
+
+  // 새로운 사용자에 대한 입력 데이터를 상태 관리
+  const [newUser, setNewUser] = useState<User>({
+    id: 0,
+    name: "",
+    email: "",
+  });
 
   //# axios를 사용한 get 요청 (가져오다)
   const fetchUsers = async () => {
@@ -70,18 +78,19 @@ export default function Axios01() {
       // - axios.get('url')
       // - axios.post('url', 저장할데이터)
 
-      const response = await axios.get('https://jsonplaceholder.typicode.com/users');
+      const response = await axios.get(
+        "https://jsonplaceholder.typicode.com/users"
+      );
 
       const data = response.data;
 
       // axios 응답 내부의 데이터: data 속성 내에 저장
       // setUsers(response.data);
       setUsers(data);
-
     } catch (e) {
-      console.error('Error fetching data: ', e);
+      console.error("Error fetching data: ", e);
     }
-  }
+  };
 
   // async function fetchUsers() {}
 
@@ -89,23 +98,71 @@ export default function Axios01() {
     fetchUsers();
   }, []);
 
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+
+    setNewUser({
+      ...newUser,
+      [name]: value
+    });
+  };
+
+  const createUser = async (newUser: User) => {
+    try {
+      // axios를 사용한 데이터 전송(post 메서드)
+      // axios.post('url', 전송할 데이터)
+      // >> 데이터를 전송하고 난 뒤 해당 데이터를 반환(응답)
+      const response = await axios.post('https://jsonplaceholder.typicode.com/users', newUser);
+
+      if (users) {
+        setUsers([...users, response.data]);
+        console.log(response.data);
+      }
+
+    } catch (e) {
+      console.error('Error creating user: ', e);
+    }
+  }
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    // 데이터를 axios를 통해 전송
+    createUser(newUser);
+
+    // input창 초기화
+    setNewUser({
+      id: 0,
+      name: '',
+      email: ''
+    });
+  }
+
   return (
     <div>
       HTTP: Axios GET / POST
-      <h3>Axios Get</h3>
+      <h3
+        style={{
+          backgroundColor: "black",
+          color: "white",
+        }}
+      >
+        Axios Get
+      </h3>
       {/*  
-      uses 데이터가 존재할 경우 UI 출력
-        , 그렇지 않을 경우 p태그(데이터를 가져오는 중입니다)
+        uses 데이터가 존재할 경우 UI 출력
+          , 그렇지 않을 경우 p태그(데이터를 가져오는 중입니다)
       */}
-      {users ? users.map(user => (
-        <div>
-          <h4>{user.name}</h4>
-          <p>{user.email}</p>
-        </div>
-      )) : (
+      {users ? (
+        users.map((user) => (
+          <div>
+            <h4>{user.name}</h4>
+            <p>{user.email}</p>
+          </div>
+        ))
+      ) : (
         <p>데이터를 가져오는 중입니다</p>
       )}
-
       {/* 
       {users.map(user => (
         <div>
@@ -114,6 +171,31 @@ export default function Axios01() {
         </div>
       ))} 
        */}
+      <h3
+        style={{
+          backgroundColor: "black",
+          color: "white",
+        }}
+      >
+        Axios Post
+      </h3>
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          placeholder="name"
+          onChange={handleInputChange}
+          name="name"
+          value={newUser.name}
+        />
+        <input
+          type="text"
+          placeholder="email"
+          onChange={handleInputChange}
+          name="email"
+          value={newUser.email}
+        />
+        <button type="submit">사용자 추가</button>
+      </form>
     </div>
-  )
+  );
 }
