@@ -170,6 +170,19 @@ export default function Axios01() {
     }
   }
 
+  //# axios를 사용하는 delete 요청 (삭제하다)
+  const deleteUser = (id: number) => {
+
+  }
+
+  const handleEdit = (user: User) => {
+    setNewUser(user);
+
+    // handleEdit 함수가 호출된 경우에만
+    // : 해당 상태 관리에 id값이 전달
+    setEditingUserId(user.id);
+  }
+
   return (
     <div>
       HTTP: Axios GET / POST
@@ -187,9 +200,11 @@ export default function Axios01() {
       */}
       {users ? (
         users.map((user) => (
-          <div>
+          <div key={user.id}>
             <h4>{user.name}</h4>
             <p>{user.email}</p>
+            <button onClick={() => handleEdit(user)}>수정</button>
+            <button onClick={() => deleteUser(user.id)}>삭제</button>
           </div>
         ))
       ) : (
@@ -226,7 +241,9 @@ export default function Axios01() {
           name="email"
           value={newUser.email}
         />
-        <button type="submit">사용자 추가</button>
+        <button type="submit">
+          {editingUserId ? '사용자 수정' : '사용자 추가'}
+        </button>
       </form>
     </div>
   );
