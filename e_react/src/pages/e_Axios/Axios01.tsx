@@ -71,12 +71,17 @@ export default function Axios01() {
     email: "",
   });
 
+  // 수정될 데이터의 id를 담는 상태 관리
+  const [editingUserId, setEditingUserId] = useState<number | null>(null);
+
   //# axios를 사용한 get 요청 (가져오다)
   const fetchUsers = async () => {
     try {
       // axios의 메서드 사용 방법
       // - axios.get('url')
       // - axios.post('url', 저장할데이터)
+      // - axios.put('url', 수정할데이터)
+      // - axios.delete('url')
 
       const response = await axios.get(
         "https://jsonplaceholder.typicode.com/users"
@@ -107,6 +112,7 @@ export default function Axios01() {
     });
   };
 
+  //# axios를 사용하는 post 요청 (전송하다)
   const createUser = async (newUser: User) => {
     try {
       // axios를 사용한 데이터 전송(post 메서드)
@@ -124,11 +130,19 @@ export default function Axios01() {
     }
   }
 
+  //# 데이터의 전송을 담당
+  // : 데이터베이스에 새로운 데이터가 전달될 경우 (post, put)
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
     // 데이터를 axios를 통해 전송
-    createUser(newUser);
+    // createUser(newUser);
+
+    if (editingUserId !== null) {
+      updateUser(editingUserId, newUser);
+    } else {
+      createUser(newUser);
+    }
 
     // input창 초기화
     setNewUser({
@@ -136,6 +150,24 @@ export default function Axios01() {
       name: '',
       email: ''
     });
+
+    setEditingUserId(null);
+  }
+
+  //# axios를 사용하는 put 요청 (수정하다)
+  const updateUser = async (id: number, updateUser: User) => {
+    try {
+      const response = await axios.put(`https://jsonplaceholder.typicode.com/users/${id}`, updateUser);
+
+      if (users) {
+        setUsers(
+          users.map(user => (user.id === id ? response.data : user))
+        );
+      }
+
+    } catch (e) {
+      console.error('Error updating user: ', e);
+    }
   }
 
   return (
