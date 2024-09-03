@@ -10,6 +10,7 @@ import Hooks from './pages/b_hooks';
 import RouterComponent from './pages/c_Router';
 import RouterHook from './pages/d_RouterHook';
 import Axios from './pages/e_Axios';
+import GlobalState from './pages/f_GlobalState';
 
 import Parent from './pages/c_Router/Parent';
 
@@ -59,6 +60,7 @@ function App() {
 
         <Route path='routerHook' element={<RouterHook />} />
         <Route path='axios' element={<Axios />} />
+        <Route path='globalState' element={<GlobalState />} />
 
         {/* 예제 (참고용) */}
         <Route path='/todos01' element={<Todos01 />} />
